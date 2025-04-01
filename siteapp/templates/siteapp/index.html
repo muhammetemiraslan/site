@@ -1,0 +1,137 @@
+{% extends "base.html" %} {% load static %} {% block title %}AnaSayfa{% endblock %} 
+
+{% block content %}
+<!-- HERO SECTİON -->
+<section class="section hero-section">
+	<div class="hero-content">
+		<h1 class="hero-header">
+			Discover elegant &
+			<br />
+			affordable furniture for every room
+		</h1>
+		<p class="hero-text">
+			Transform your furniture with sophisticated and stylish
+			<br />
+			pieces, and create a serene and inviting home.
+		</p>
+		<div class="hero-buttons">
+			<button class="btn">Shop now</button>
+			<button class="btn btn-transparent">Free delivery</button>
+			<button class="btn btn-transparent">Always on-time</button>
+		</div>
+	</div>
+	<!-- grid e bakılacak -->
+	<div class="hero-grid">
+		<p style="text-align: center"></p>
+	</div>
+</section>
+
+<!-- POPULAR SECTION -->
+<section class="section popular-section">
+	<header>
+		<!-- center etiketi düzeltilmeli -->
+		<center>
+			<h3 class="section-category-text">POPULAR</h3>
+			<h2 class="section-heading-text">Furniture Sale Now On!</h2>
+		</center>
+	</header>
+
+	<div class="popular-cards">
+		<article>
+			<a href="#" class="popular-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
+				<div class="product-info">
+					<p class="product-name">makaron</p>
+					<p class="product-price">$20.50</p>
+				</div>
+			</a>
+		</article>
+		<article>
+			<a href="#" class="popular-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
+				<div class="product-info">
+					<p class="product-name">makaron</p>
+					<p class="product-price">$20.50</p>
+				</div>
+			</a>
+		</article>
+		<article>
+			<a href="#" class="popular-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
+				<div class="product-info">
+					<p class="product-name">makaron</p>
+					<p class="product-price">$20.50</p>
+				</div>
+			</a>
+		</article>
+	</div>
+</section>
+
+<!-- CATEGORY SECTION -->
+<section class="section category-section">
+	<header>
+		<h3 class="section-category-text">category</h3>
+		<h2 class="section-heading-text">Design your perfect home</h2>
+	</header>
+
+	<ul class="category-cards">
+		<li>
+			<a href="#" class="category-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
+				<p class="category-card-text">Living room</p>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="category-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
+				<p class="category-card-text">Living room</p>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="category-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
+				<p class="category-card-text">Living room</p>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="category-card">
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
+				<p class="category-card-text">Living room</p>
+			</a>
+		</li>
+	</ul>
+</section>
+
+<!-- AMBITIONS SECTION -->
+<section class="section ambitions-section two-column-section">
+	<div class="section-left">
+		<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="" class="ambitions-img" />
+	</div>
+
+	<div class="section-right">
+		<article class="ambitions-content">
+			<header>
+				<h3 class="section-category-text">our ambitions</h3>
+				<h2 class="section-heading-text">Pioneering innovation and excellence in furniture</h2>
+			</header>
+			<p class="ambitions-text">Striving for excellence in every detail, we are committed to revolutionizing the online shopping experience. Our ambition is to set new standards in quality, customer satisfaction, and sustainability, ensuring that every purchase from our platform is a step towards a brighter, more innovative future.</p>
+			<button class="btn">Learn more</button>
+		</article>
+	</div>
+</section>
+
+<!-- SECTION EMPHASIS -->
+<section class="section emphasis-section">
+	<header class="section-header">
+		<h1>
+			We meticulously curate our
+			<br />
+			<span class="emphasis">product selections</span>
+			to ensure
+			<br />
+			you receive only the best.
+		</h1>
+	</header>
+</section>
+
+{% endblock %}
