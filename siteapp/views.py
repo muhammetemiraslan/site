@@ -8,6 +8,7 @@ def home(request):
 def category(request):
     return render(request, "siteapp/category.html")
 
+
 def promo(request):
     return render(request, "siteapp/promo.html")
 
