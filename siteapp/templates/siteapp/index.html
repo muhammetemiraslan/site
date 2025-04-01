@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% load static %} {% block title %}Ana Sayfa{% endblock %} {% block content %}
+<!-- HERO SECTİON -->
+<section class="section hero-section">
+	<div class="hero-content">
+		<h1 class="hero-header">
+			Discover elegant &
+			<br />
+			affordable furniture for every room
+		</h1>
+		<p class="hero-text">
+			Transform your furniture with sophisticated and stylish
+			<br />
+			pieces, and create a serene and inviting home.
+		</p>
+		<div class="hero-buttons">
+			<button class="btn">Shop now</button>
+			<button class="btn btn-transparent">Free delivery</button>
+			<button class="btn btn-transparent">Always on-time</button>
+		</div>
+	</div>
+	<!-- grid e bakılacak -->
+	<div class="hero-grid br">
+		<p style="text-align: center">grid gelicek araştırılıp</p>
+	</div>
+</section>
+
+<!-- POPULAR SECTION -->
+<section class="section popular-section">
+	<center>
+		<h3 class="section-category-text">POPULAR</h3>
+		<h2 class="section-heading-text">Furniture Sale Now On!</h2>
+	</center>
+	<div class="popular-cards">
+		<div class="popular-card">
+			<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="" class="popular-card-img" />
+			<div class="product-info">
+				<p class="product-name">makaron</p>
+				<p class="product-price">$20.50</p>
+			</div>
+		</div>
+
+		<div class="popular-card">
+			<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="" class="popular-card-img" />
+			<div class="product-info">
+				<p class="product-name">makaron</p>
+				<p class="product-price">$20.50</p>
+			</div>
+		</div>
+
+		<div class="popular-card">
+			<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="" class="popular-card-img" />
+			<div class="product-info">
+				<p class="product-name">makaron</p>
+				<p class="product-price">$20.50</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section category-section">
+	<h3 class="section-category-text">category</h3>
+	<h2 class="section-heading-text">Design your perfect home</h2>
+</section>
+{% endblock %}
