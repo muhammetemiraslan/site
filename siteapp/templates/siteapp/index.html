@@ -35,15 +35,7 @@
 	</header>
 
 	<div class="popular-cards">
-		{% comment %} <article>
-			<a href="#" class="popular-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
-				<div class="product-info">
-					<p class="product-name">makaron</p>
-					<p class="product-price">$20.50</p>
-				</div>
-			</a>
-		</article>
+		{% comment %}
 		<article>
 			<a href="#" class="popular-card">
 				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
@@ -61,18 +53,29 @@
 					<p class="product-price">$20.50</p>
 				</div>
 			</a>
-		</article> {% endcomment %}
-
-		{% for product in products%}
+		</article>
 		<article>
 			<a href="#" class="popular-card">
-				<img src="{{product.image.url}}" alt="meta info for image" class="popular-card-img" />
+				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
 				<div class="product-info">
-					<p class="product-name">{{product.title}}</p>
-					<p class="product-price">${{product.price}}</p>
+					<p class="product-name">makaron</p>
+					<p class="product-price">$20.50</p>
 				</div>
 			</a>
 		</article>
+		{% endcomment %} ,
+		{% for product in products%} 
+			{% if product.is_home %}
+				<article>
+					<a href="#" class="popular-card">
+						<img src="{{product.image.url}}" alt="meta info for image" class="popular-card-img" />
+						<div class="product-info">
+							<p class="product-name">{{product.title}}</p>
+							<p class="product-price">${{product.price}}</p>
+						</div>
+					</a>
+				</article>
+			{% endif %} 
 		{% endfor %}
 	</div>
 </section>
