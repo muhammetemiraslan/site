@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from .models import product, category
 
 # Create your views here.
 
 def home(request):
     return render(request, "siteapp/index.html")
 
-def category(request):
+def Category(request):
     return render(request, "siteapp/category.html")
 
 
@@ -15,5 +16,14 @@ def promo(request):
 def interiorDesign(request):
     return render(request, "siteapp/interior-design.html")
 
-def productRecomendation(request):
-    return render(request, "siteapp/product-recomendation.html")
+def products(request):
+
+    products = product.objects.all()
+    
+    categories = category.objects.all()
+
+    return render(request, "siteapp/products.html", 
+    {
+        "products":products,
+        "categories":categories,
+    })
