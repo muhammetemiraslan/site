@@ -445,6 +445,11 @@ body {
   color: white;
 }
 
+.product-category-link.active {
+  background: #000;
+  color: white;
+}
+
 .popular-card {
   cursor: pointer;
   background: #F9F9FB;

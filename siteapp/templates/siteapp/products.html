@@ -7,40 +7,16 @@
 	<h2 class="section-heading-text">Products</h2>
 	<p class="emphasis">The best products design for inspiration</p>
 	<nav class="product-navbar">
-		<select class="products-dropdown" name="filter">
-			<option value="popular" selected>Popular</option>
-			<option value="azalan">Fiyata göre Azalan</option>
-			<option value="artan">Fiyata göre Artan</option>
-			<option value="yeni">En yeni</option>
-		</select>
-
+		{% include "siteapp/partials/_product-filter.html" %}
 		<div class="product-category-links">
-			{% comment %} <button class="product-category-link">category</button>
-			<button class="product-category-link">category</button>
-			<button class="product-category-link">category</button>
-			<button class="product-category-link">category</button> {% endcomment %}
-			{% for category in categories %}
-				<button class="product-category-link">{{ category.name }}</button>
-			{% endfor %}
+			{% include "partials/_categories.html" %}
 		</div>
 	</nav>
 </section>
 
 <section class="section products-section four-column-grid">
 	
-	<!-- product card -->
-	{% for product in products %}
-		<a href="#">
-			<article class="product-card">
-				{% comment %} <img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="" class="product-card-img" /> {% endcomment %}
-				<img src="{{product.image.url}}" alt="" class="product-card-img" />
-				<div class="product-card-info">
-					<p class="product-card-text">{{product.title}}$</p>
-					<p class="product-card-price">{{product.price}}$</p>
-				</div>
-			</article>
-		</a>
-	{% endfor %}
+	{% include "siteapp/partials/_products.html" %}
 
 </section>
 

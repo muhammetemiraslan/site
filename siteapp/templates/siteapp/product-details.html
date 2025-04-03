@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% load static %} {% block title %}product details{% endblock %} {% block content %}
+<h1>product details page (sample)</h1>
+
+        <img src="{{products.image.url}}" alt="" class="product-card-img" />
+        <div class="product-card-info">
+            <p class="product-card-text">{{products.title}}</p>
+            <p class="product-card-price">{{products.price}}$</p>
+        </div>
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+{% endblock %}

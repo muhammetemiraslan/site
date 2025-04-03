@@ -1,0 +1,16 @@
+<form method="get" action="{% url 'products' %}">
+    <select class="products-dropdown" name="filter" onchange="this.form.submit()">
+      <option value="popular" {% if request.GET.filter == 'popular' %}selected{% endif %}>Popular</option>
+      <option value="azalan" {% if request.GET.filter == 'azalan' %}selected{% endif %}>Fiyata göre Azalan</option>
+      <option value="artan" {% if request.GET.filter == 'artan' %}selected{% endif %}>Fiyata göre Artan</option>
+      <option value="yeni" {% if request.GET.filter == 'yeni' %}selected{% endif %}>En yeni</option>
+    </select>
+</form>
+
+<script>
+    document.querySelector('.products-dropdown').addEventListener('change', function () {
+      var filterValue = this.value;
+      window.location.href = "{% url 'products' %}?filter=" + filterValue;
+    });
+</script>
+  
