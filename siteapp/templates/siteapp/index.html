@@ -35,35 +35,6 @@
 	</header>
 
 	<div class="popular-cards">
-		{% comment %}
-		<article>
-			<a href="#" class="popular-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
-				<div class="product-info">
-					<p class="product-name">makaron</p>
-					<p class="product-price">$20.50</p>
-				</div>
-			</a>
-		</article>
-		<article>
-			<a href="#" class="popular-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
-				<div class="product-info">
-					<p class="product-name">makaron</p>
-					<p class="product-price">$20.50</p>
-				</div>
-			</a>
-		</article>
-		<article>
-			<a href="#" class="popular-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="meta info for image" class="popular-card-img" />
-				<div class="product-info">
-					<p class="product-name">makaron</p>
-					<p class="product-price">$20.50</p>
-				</div>
-			</a>
-		</article>
-		{% endcomment %} ,
 		{% for product in products%} 
 			{% if product.is_home %}
 				<article>

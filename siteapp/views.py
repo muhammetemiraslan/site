@@ -3,16 +3,21 @@ from .models import product, category
 
 # Create your views here.
 
+
 def home(request):
     products = product.objects.all()[:3]
-    
+
     categories = category.objects.all()
 
-    return render(request, "siteapp/index.html",
-    {
-        "products":products,
-        "categories":categories,
-    })
+    return render(
+        request,
+        "siteapp/index.html",
+        {
+            "products": products,
+            "categories": categories,
+        },
+    )
+
 
 def Category(request):
     return render(request, "siteapp/category.html")
@@ -21,56 +26,76 @@ def Category(request):
 def promo(request):
     return render(request, "siteapp/promo.html")
 
+
 def interiorDesign(request):
     return render(request, "siteapp/interior-design.html")
+
 
 def products(request):
 
     products = product.objects.all()
-    
-    categories = category.objects.all()
 
-    valid_filters = ['popular', 'azalan', 'artan', 'yeni']
-    filter_option = request.GET.get('filter', 'popular')
-    
-    if filter_option not in valid_filters:
-        filter_option = 'popular'
+    categories = category.objects.all()[:8]
 
-    if filter_option == 'popular':
-        products = product.objects.all()
-    elif filter_option == 'azalan':
-        products = product.objects.all().order_by('-price')
-    elif filter_option == 'artan':
-        products = product.objects.all().order_by('price')
-    elif filter_option == 'yeni':
-        products = product.objects.all().order_by('-created_at')
-    else:
-        products = product.objects.all()
+    valid_filters = {"azalan": "-price", "artan": "price", "yeni": "-created_at"}
 
-    return render(request, "siteapp/products.html", 
-    {
-        "products":products,
-        "categories":categories,
-    })
+    filter_option = request.GET.get("filter", "test")
+
+    if filter_option in valid_filters:
+        products = products.order_by(valid_filters[filter_option])
+
+    return render(
+        request,
+        "siteapp/products.html",
+        {
+            "products": products,
+            "categories": categories,
+            "selected_filter": filter_option,
+        },
+    )
+
 
 def product_details(request, slug):
     products = product.objects.get(slug=slug)
+    categories = products.categories.all()
+    related_products = product.objects.filter(categories__in=categories).exclude(
+        id=products.id
+    )
 
-    return render(request,"siteapp/product-details.html",
-    {
-        "products":products
-    })
+    return render(
+        request,
+        "siteapp/product-details.html",
+        {
+            "products": products,
+            "categories": categories,
+            "related_products": related_products,
+        },
+    )
+
 
 def products_by_category(request, slug):
 
     category_slug = slug
     category_obj = category.objects.get(slug=slug)
     products = product.objects.filter(categories=category_obj)
-    categories = category.objects.all()
+    categories = category.objects.all()[:8]
 
-    return render(request, "siteapp/products.html", {
-        "products": products,
-        "categories": categories,
-        "selected_category": category_obj,
-        "category_slug": category_slug
-    })
+    valid_filters = {"azalan": "-price", "artan": "price", "yeni": "-created_at"}
+
+    filter_option = request.GET.get("filter", "test")
+
+    if filter_option in valid_filters:
+        products = products.order_by(valid_filters[filter_option])
+
+    return render(
+        request,
+        "siteapp/products.html",
+        {
+            "products": products,
+            "categories": categories,
+            "selected_category": category_obj,
+            "category_slug": category_slug,
+            "category_slug": category_slug,
+            "selected_filter": filter_option,
+        },
+    )

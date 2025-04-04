@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% load static %} {% block title %}product details{% endblock %} {% block content %}
+
+<section class="section product-section two-column-section">
+	<div class="section-left box">
+		<img src="{{products.image.url}}" alt="Two makaron blue and yellow on each other" class="product-img" />
+	</div>
+
+	<div class="section-right">
+		<div class="box">
+			<h1 class="product-name">{{products.title}}</h1>
+			<small class="product-view-count emphasis">23.754 defa görüntülendi</small>
+		</div>
+		<p class="product-desc">{{products.description|truncatewords:15}}</p>
+		<h1 class="product-price">{{products.price}}$</h1>
+		<article action="" method="post" class="product-addchart">
+			<input class="product-chart-count" type="number" id="quantity" name="quantity" min="1" max="100" value="1" required />
+			<button type="submit" class="btn">sepete ekle</button>
+		</article>
+		<small class="product-category emphasis">
+			Categories: {% for category in categories %}
+			<a href="" class="category-link">{{ category.name }}</a>
+			{% if not forloop.last %}, {% endif %} {% endfor %}
+		</small>
+	</div>
+</section>
+
+{% endblock %}
