@@ -23,6 +23,8 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("siteapp.urls")),
+    path("order/", include("order.urls")),
+    path("cart/", include("cart.urls")),
 ]
 
 if settings.DEBUG:
