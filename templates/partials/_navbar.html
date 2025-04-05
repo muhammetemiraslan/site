@@ -1,14 +1,38 @@
 <header class="navbar">
-	<a href="{% url 'home' %}" class="brand">
-		<h1>AIKE</h1>
-	</a>
-	<nav class="nav">
-		<ul>
-			<li><a href="{% url 'Category' %}">category</a></li>
-			<li><a href="{% url 'promo' %}">promo</a></li>
-			<li><a href="{% url 'interior-design' %}">interior design</a></li>
-			<li><a href="{% url 'products' %}">products</a></li>
-			<li><a href="{% url 'cart_detail' %}">sepet</a></li>
-		</ul>
-	</nav>
+	<div class="navbar-left">
+		<a href="{% url 'home' %}" class="brand">
+			<h1>AIKE</h1>
+		</a>
+		<nav class="nav">
+			<ul>
+				<li><a href="{% url 'Category' %}">category</a></li>
+				<li><a href="{% url 'promo' %}">promo</a></li>
+				<li><a href="{% url 'interior-design' %}">interior design</a></li>
+				<li><a href="{% url 'products' %}">products</a></li>
+				<li><a href="{% url 'cart_detail' %}">sepet</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- the hamburger -->
+	<div class="navbar-right">
+		<button id="navbtn" class="nav-toggle-btn">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</button>
+	</div>
+
+	<!-- off screen menu -->
+	<article class="off-screen-menu">
+		<nav class="off-screen-nav">
+			<ul>
+				<li><a href="{% url 'Category' %}">category</a></li>
+				<li><a href="{% url 'promo' %}">promo</a></li>
+				<li><a href="{% url 'interior-design' %}">interior design</a></li>
+				<li><a href="{% url 'products' %}">products</a></li>
+				<li><a href="{% url 'cart_detail' %}">sepet</a></li>
+			</ul>
+		</nav>
+	</article>
 </header>

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from siteapp.models import product
+from decimal import Decimal
 
 # Create your views here.
 
@@ -9,6 +10,7 @@ def cart_detail(request):
     cart = request.session.get("cart", {})
     cart_items = []
     total_price = 0
+    cargo_price = Decimal("232.00")
 
     for product_id, quantity in cart.items():
         prod = product.objects.get(id=product_id)
@@ -24,11 +26,36 @@ def cart_detail(request):
             }
         )
 
+    total_without_cargo = total_price - cargo_price
+
     return render(
         request,
         "cart/cart.html",
-        {"cart_items": cart_items, "total_price": total_price},
+        {
+            "cart_items": cart_items,
+            "total_price": total_price,
+            "total_without_cargo": total_without_cargo,
+            "cargo_price": cargo_price,
+        },
     )
+
+
+def update_cart_quantity(request, product_id):
+    if request.method == "POST":
+        action = request.POST.get("action")
+        cart = request.session.get("cart", {})
+
+        quantity = cart.get(str(product_id), 0)
+
+        if action == "increase":
+            quantity += 1
+        elif action == "decrease" and quantity > 1:
+            quantity -= 1
+
+        cart[str(product_id)] = quantity
+        request.session["cart"] = cart
+
+    return redirect("cart_detail")
 
 
 def add_to_cart(request, product_id):
@@ -47,10 +74,10 @@ def add_to_cart(request, product_id):
 
 
 def remove_from_cart(request, product_id):
-    cart = request.session.get('cart', {})
+    cart = request.session.get("cart", {})
 
     if str(product_id) in cart:
         del cart[str(product_id)]
 
-    request.session['cart'] = cart
-    return redirect('cart_detail')
+    request.session["cart"] = cart
+    return redirect("cart_detail")

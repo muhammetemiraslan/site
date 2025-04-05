@@ -1,0 +1,146 @@
+.navbar {
+  margin-block: px-to-rem(24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(60);
+  }
+
+  .navbar-right {
+    display: none;
+    @include respond-to(small) {
+      display: block;
+    }
+  }
+
+  .brand {
+    font-size: 1rem;
+    @include respond-to(small) {
+      font-size: 0.5rem;
+    }
+  }
+
+  .nav ul {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: px-to-rem(30);
+    //typography
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    @include respond-to(small) {
+      font-size: 0.5rem;
+      gap: px-to-rem(15);
+      display: none;
+    }
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
+  //for mobile navbar
+  @include respond-to(small) {
+    margin-block: px-to-rem(
+      24
+    ); // Ekran 600px'den küçükse margin-block 24px olacak
+    gap: px-to-rem(30);
+  }
+}
+
+/* hamburger-toggle*/
+
+.nav-toggle-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.nav-toggle-btn .line {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: black;
+
+  transition: 250ms ease-in-out;
+}
+
+.nav-toggle-btn .line:nth-child(1) {
+  width: 15px;
+  left: 0;
+  transform: translateY(-8px);
+}
+
+.nav-toggle-btn .line:nth-child(3) {
+  width: 7.5px;
+  left: 0;
+  transform: translateY(8px);
+}
+
+.nav-toggle-btn.active .line {
+  transform: translateY(0);
+}
+
+.nav-toggle-btn.active .line:nth-child(1) {
+  width: 30px;
+  transform: rotate(45deg);
+}
+
+.nav-toggle-btn.active .line:nth-child(2) {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.nav-toggle-btn.active .line:nth-child(3) {
+  width: 30px;
+  transform: rotate(-45deg);
+}
+.nav-toggle-btn {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+/* off-screen-menu */
+.off-screen-menu {
+  display: none;
+  @include respond-to(small) {
+    z-index: 1;
+    background-color: $white-color;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: block;
+    padding-top: px-to-rem(120);
+    padding-inline: $gap30;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease;
+  }
+  .off-screen-nav{
+    &>ul{
+      display: block;
+      text-align: start;
+      width: 100%;
+    }
+    .off-screen-nav--item{
+      font-size: 1.3rem;
+      margin-bottom: $gap30;
+    }
+  }
+}
+.off-screen-menu.active {
+  right: 0;
+}

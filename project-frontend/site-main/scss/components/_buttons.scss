@@ -1,0 +1,46 @@
+.btn {
+    background: $black-color;
+    color: $white-color;
+    cursor: pointer;
+    font-family: $regular-font;
+    font-size: px-to-rem(14);
+    padding-inline: px-to-rem(28);
+    padding-block: px-to-rem(16);
+    // @include respond-to(small){
+    //     font-size: px-to-rem(7);
+    //     padding-inline: px-to-rem(14);
+    //     padding-block: px-to-rem(8);
+    // }
+
+    text-transform: capitalize;
+}
+
+.btn-transparent{
+    cursor: default;
+    border: none;
+    background: transparent;
+    color: $black-color;
+}
+
+.btn-more{
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.product-category-link{
+    padding: px-to-rem(15);
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: $regular-font;
+    &:hover{
+        background: $white-color;
+    }
+    &:focus{
+        background: $black-color;
+        color: white;
+    }
+}

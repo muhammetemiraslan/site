@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepet sayfasi</title>
+
+    <link rel="stylesheet" href="../scss/style.css">
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- HEADING(NAVBAR) -->
+        <header class="navbar">
+            <!-- navbar links -->
+            <div class="navbar-left">
+                <a href="../index.html" class="brand">
+                    <h1>AIKE</h1>
+                </a>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#">category</a></li>
+                        <li><a href="#">promo</a></li>
+                        <li><a href="#">interior design</a></li>
+                        <li><a href="./products.html">products</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- the hamburger -->
+            <div class="navbar-right">
+                <button id="navbtn" class="nav-toggle-btn ">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+
+            <!-- off screen menu -->
+            <article class="off-screen-menu ">
+                <nav class="off-screen-nav">
+                    <ul>
+                        <li class="off-screen-nav--item"><a href="#">category</a></li>
+                        <li class="off-screen-nav--item"><a href="#">promo</a></li>
+                        <li class="off-screen-nav--item"><a href="#">interior design</a></li>
+                        <li class="off-screen-nav--item"><a href="pages/products.html">products</a></li>
+                    </ul>
+                </nav>
+            </article>
+
+        </header>
+
+        <section class="section">
+            <h1>Products cart</h1>
+        </section>
+
+        <!-- cart -->
+        <section class="section">
+            <div class="two-column-cart-layout">
+                <ul class="cart-list">
+
+                    <!-- cards -->
+                    <li class="cart-card ">
+                        <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
+                            class="cart-card-img">
+                        <a href="#" class="cart-card-link">
+                            <h4>product name uzunyazılarıtestediyorum lsajdlkasjdlkasj asjdlaskjdlasjdklas</h4>
+                        </a>
+                        <div class="quantity-container">
+                            <button class="btn btn-transparent quantity-btn" id="decrease">-</button>
+                            <span id="quantity">1</span>
+                            <button class="btn btn-transparent quantity-btn" id="increase">+</button>
+                        </div>
+                        <h4>123.4$</h4>
+                        <button class="btn btn-transparent remove-btn">Sepetten çıkar</button>
+                    </li>
+
+                </ul>
+
+                <div class="cart-summary-wrapper">
+                    <article class="cart-summary-card">
+                        <h3 class="cart-summary-card-title">Sipariş özeti</h3>
+                        <div class="summary-text">
+                            <p>urun toplam</p>
+                            <p>232</p>
+                        </div>
+                        <div class="summary-text">
+                            <p>kargo toplam</p>
+                            <p>232</p>
+                        </div>
+                        <hr>
+                        <div class="summary-text">
+                            <h4>toplam</h4>
+                            <h4>1.151,90TL</h4>
+                        </div>
+                        <button class="btn">Sepeti onayla</button>
+                    </article>
+                </div>
+            </div>
+            
+
+            <!-- load more btn -->
+            <section class="section more-section continue-section">
+                <button class="btn btn-transparent btn-more">Alışverişe devam et -></button>
+            </section>
+        </section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="section footer ">
+        <div class="footer-container container">
+
+            <header class="footer-logo  ">
+                <a href="#">
+                    <h2>AIKE</h2>
+                </a>
+            </header>
+
+            <nav class="footer-links ">
+
+                <div class="footer-column ">
+                    <h3 class="footer-column--title">Company</h3>
+                    <ul class="footer-column--links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column ">
+                    <h3 class="footer-column--title">Category</h3>
+                    <ul class="footer-column--links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Home Office</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Outdoor</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column newsletter ">
+                    <h3 class="footer-column--title">Join our newsletter</h3>
+                    <form>
+                        <input type="email" placeholder="Email">
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="footer-bottom">
+                <p>Copyright © 2025 AIKE. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms of Condition</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/nav-toggle.js"></script>
+
+</body>
+
+</html>

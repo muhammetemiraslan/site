@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+
+    <link rel="stylesheet" href="../scss/style.css">
+
+</head>
+
+<body>
+
+    <main class="container">
+        <!-- HEADING(NAVBAR) -->
+        <header class="navbar">
+            <!-- navbar links -->
+            <div class="navbar-left">
+                <a href="../index.html" class="brand">
+                    <h1>AIKE</h1>
+                </a>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#">category</a></li>
+                        <li><a href="#">promo</a></li>
+                        <li><a href="#">interior design</a></li>
+                        <li><a href="./products.html">products</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- the hamburger -->
+            <div class="navbar-right">
+                <button id="navbtn" class="nav-toggle-btn ">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+
+            <!-- off screen menu -->
+            <article class="off-screen-menu ">
+                <nav class="off-screen-nav">
+                    <ul>
+                        <li class="off-screen-nav--item"><a href="#">category</a></li>
+                        <li class="off-screen-nav--item"><a href="#">promo</a></li>
+                        <li class="off-screen-nav--item"><a href="#">interior design</a></li>
+                        <li class="off-screen-nav--item"><a href="./products.html">products</a></li>
+                    </ul>
+                </nav>
+            </article>
+
+        </header>
+
+        <section class="section product-section two-column-section">
+
+            <div class="section-left box ">
+                <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png"
+                    alt="Two makaron blue and yellow on each other" class="product-img">
+            </div>
+
+            <div class="section-right">
+                <div class="box">
+                    <h1 class="product-name">Makaron</h1>
+                    <small class="product-view-count emphasis">23.754 defa görüntülendi</small>
+                </div>
+                <p class="product-desc">
+                    Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Dignissimos incidunt quo optio ipsum ab
+                    similique eum deserunt saepe nam maxime maiores quae,
+                    nulla natus.
+                </p>
+                <h1 class="product-price">145.6$</h1>
+                <article action="" method="post" class="product-addchart">
+                    <input class="product-chart-count" type="number" id="quantity" name="quantity" min="1" max="100"
+                        value="1" required>
+                    <button type="submit" class="btn">sepete ekle</button>
+                </article>
+                <small class="product-category emphasis">Categories: yemek, tatlı</small>
+            </div>
+        </section>
+
+        <section class="section product-section">
+            <div class="product-info-buttons">
+                <button class="btn btn-transparent" id="desc-btn">Description</button>
+                <button class="btn btn-transparent" id="review-btn">Rewievs</button>
+            </div>
+            <h2>Description</h2>
+            <p class="product-desc">
+                Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Dignissimos incidunt quo optio ipsum ab
+                similique eum deserunt saepe nam maxime maiores quae,
+                nulla natus.
+            </p>
+        </section>
+
+        <section class="section related-section">
+            <h3 class="section-heading-text">Related Products</h3>
+            <!-- RELATED PRODUCT -->
+            <div class="related-products">
+
+                <a href="#">
+                    <article class="product-card">
+                        <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
+                            class="product-card-img">
+                        <div class="product-card-info ">
+                            <p class="product-card-text ">
+                                MAKARON
+                            </p>
+                            <p class="product-card-price">$20.20</p>
+                        </div>
+                    </article>
+                </a>
+                <a href="#">
+                    <article class="product-card">
+                        <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
+                            class="product-card-img">
+                        <div class="product-card-info ">
+                            <p class="product-card-text ">
+                                MAKARON
+                            </p>
+                            <p class="product-card-price">$20.20</p>
+                        </div>
+                    </article>
+                </a>
+                <a href="#">
+                    <article class="product-card">
+                        <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
+                            class="product-card-img">
+                        <div class="product-card-info ">
+                            <p class="product-card-text ">
+                                MAKARON
+                            </p>
+                            <p class="product-card-price">$20.20</p>
+                        </div>
+                    </article>
+                </a>
+                <a href="#">
+                    <article class="product-card">
+                        <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
+                            class="product-card-img">
+                        <div class="product-card-info ">
+                            <p class="product-card-text ">
+                                MAKARON
+                            </p>
+                            <p class="product-card-price">$20.20</p>
+                        </div>
+                    </article>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="section footer ">
+        <div class="footer-container container">
+
+            <header class="footer-logo  ">
+                <a href="#">
+                    <h2>AIKE</h2>
+                </a>
+            </header>
+
+            <nav class="footer-links ">
+
+                <div class="footer-column ">
+                    <h3 class="footer-column--title">Company</h3>
+                    <ul class="footer-column--links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column ">
+                    <h3 class="footer-column--title">Category</h3>
+                    <ul class="footer-column--links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Home Office</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Outdoor</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column newsletter ">
+                    <h3 class="footer-column--title">Join our newsletter</h3>
+                    <form>
+                        <input type="email" placeholder="Email">
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="footer-bottom">
+                <p>Copyright © 2025 AIKE. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms of Condition</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let x=false;
+        let descBtn = document.getElementById("desc-btn");
+        descBtn.classList.add("active")
+        x=true;
+        let reviewBtn = document.getElementById("review-btn");
+        reviewBtn.addEventListener("click",function() {
+            if(x){
+                descBtn.classList.remove("active")
+                reviewBtn.classList.add("active")
+                x=false;
+            }
+        })
+        descBtn.addEventListener("click",function() {
+            if(!x){
+                descBtn.classList.add("active")
+                reviewBtn.classList.remove("active")
+                x=true;
+            }
+        })
+    </script>
+
+    <script src="../scripts/nav-toggle.js"></script>
+</body>
+
+</html>

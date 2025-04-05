@@ -1,8 +1,8 @@
-{% extends "base.html" %} {% load static %} {% block title %}cart{% endblock %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block title %}cart{% endblock %} {% block content %} {% comment %}
 <h2>Sepet</h2>
 <ul>
 	{% for item in cart_items %}
-    <br />
+	<br />
 	<img src="{{ item.image }}" alt="{{ item.product.title }}" class="product-img" style="height: 100px; width: 100px" />
 	<br />
 	<li>{{ item.product.title }} - {{ item.quantity }} x {{ item.product.price }} = {{ item.subtotal }}</li>
@@ -12,24 +12,80 @@
 <form action="{% url 'remove_from_cart' item.product.id %}" method="POST">
 	{% csrf_token %}
 	<button type="submit" class="btn btn-danger">Sil</button>
-    
 </form>
 {% endfor %}
 <br />
+{% endcomment %}
 
+<section class="section">
+	<h1>Products cart</h1>
+</section>
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<!-- cart -->
+<section class="section">
+	<div class="two-column-cart-layout">
+		<ul class="cart-list">
+			{% for item in cart_items %}
+			<!-- cards -->
+			<li class="cart-card">
+				<img src="{{ item.image }}" alt="" class="cart-card-img" />
+				<a href="#" class="cart-card-link">
+					<h4>{{item.product.title}}</h4>
+				</a>
+				<div class="quantity-container">
+					<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
+						{% csrf_token %}
+						<input type="hidden" name="action" value="decrease" />
+						<button class="btn btn-transparent quantity-btn">-</button>
+					</form>
+					<span id="quantity">{{ item.quantity }}</span>
+					<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
+						{% csrf_token %}
+						<input type="hidden" name="action" min="1" max="10" value="increase" />
+						<button class="btn btn-transparent quantity-btn">+</button>
+					</form>
+				</div>
+				<h4>{{ item.subtotal }}$</h4>
+				<form action="{% url 'remove_from_cart' item.product.id %}" method="POST">
+					{% csrf_token %}
+					<button type="submit" class="btn btn-transparent remove-btn">Sepetten çıkar</button>
+				</form>
+			</li>
+			{% endfor %}
+		</ul>
+
+		<div class="cart-summary-wrapper">
+			<article class="cart-summary-card">
+				<h3 class="cart-summary-card-title">Sipariş özeti</h3>
+				{% if cart_items %}
+				<div class="summary-text">
+					<p>ürün toplam</p>
+					<p>{{ total_price }}$</p>
+				</div>
+				<div class="summary-text">
+					<p>kargo toplam</p>
+					<p>{{ cargo_price }}$</p>
+				</div>
+				<hr />
+				<div class="summary-text">
+					<h4>toplam</h4>
+					<h4>{{ total_without_cargo }}$</h4>
+				</div>
+				<button class="btn">Sepeti onayla</button>
+				{% else %}
+				<p>Sepetinizde ürün bulunmamaktadır.</p>
+				<br />
+				{% endif %}
+			</article>
+		</div>
+	</div>
+
+	<!-- load more btn -->
+	<section class="section more-section continue-section">
+		<a href="{% url 'products' %}">
+			<button class="btn btn-transparent btn-more">Alışverişe devam et -></button>
+		</a>
+	</section>
+</section>
+
 {% endblock %}
