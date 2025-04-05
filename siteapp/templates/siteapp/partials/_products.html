@@ -2,7 +2,7 @@
 {% for product in products %}
 <a href="{% url 'product-details' product.slug %}">
 	<article class="product-card">
-		<img src="{{product.image.url}}" alt="" class="product-card-img" />
+		<img src="{{product.image.url}}"alt="" class="product-card-im" />
 		<div class="product-card-info">
 			<p class="product-card-text">{{product.title}}</p>
 			<p class="product-card-price">{{product.price}}$</p>

@@ -29,6 +29,15 @@
 				</ul>
 			</div>
 
+			{% comment %} <div class="footer-column">
+				<h3 class="footer-column--title">Category</h3>
+				<ul class="footer-column--links">
+					{% for category in categories %}
+						<li><a href="{% url 'products-by-category' category.slug %}">{{ category.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div> {% endcomment %}
+
 			<div class="footer-column newsletter">
 				<h3 class="footer-column--title">Join our newsletter</h3>
 				<form>

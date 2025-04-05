@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import product, category
 
+
 def home(request):
     products = product.objects.all()[:3]
 
@@ -15,14 +16,18 @@ def home(request):
         },
     )
 
+
 def Category(request):
     return render(request, "siteapp/category.html")
+
 
 def promo(request):
     return render(request, "siteapp/promo.html")
 
+
 def interiorDesign(request):
     return render(request, "siteapp/interior-design.html")
+
 
 def products(request):
 
@@ -47,11 +52,18 @@ def products(request):
         },
     )
 
+
 def product_details(request, slug):
     products = product.objects.get(slug=slug)
     categories = products.categories.all()
-    related_products = product.objects.filter(categories__in=categories).exclude(id=products.id)
+    related_products = product.objects.filter(categories__in=categories).exclude(
+        id=products.id
+    )
 
+    cart = request.session.get('cart', {})  
+    cart_quantity = cart.get(str(products.id), 0)
+
+    # Sonuçları şablona gönderiyoruz
     return render(
         request,
         "siteapp/product-details.html",
@@ -59,8 +71,10 @@ def product_details(request, slug):
             "products": products,
             "categories": categories,
             "related_products": related_products,
+            "cart_quantity": cart_quantity,
         },
     )
+
 
 def products_by_category(request, slug):
 
@@ -86,5 +100,18 @@ def products_by_category(request, slug):
             "category_slug": category_slug,
             "category_slug": category_slug,
             "selected_filter": filter_option,
+        },
+    )
+
+
+# def categoryFooter(request):
+
+    categories = category.objects.all()[:5]
+
+    return render(
+        request,
+        "_footer.html",
+        {
+            "categories": categories,
         },
     )

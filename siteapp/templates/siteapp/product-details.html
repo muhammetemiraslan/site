@@ -17,6 +17,9 @@
 			<article action="{% url 'add_to_cart' products.id %}" method="post" class="product-addchart">
 				<input class="product-chart-count" type="number" id="quantity" name="quantity" min="1" max="10" value="1" required />
 				<button type="submit" class="btn">sepete ekle</button>
+				{% if cart_quantity > 0 %}
+				<p class="product-desc">Sepette bu üründen {{ cart_quantity }} tane bulunmaktadır.</p>
+				{% endif %}
 			</article>
 		</form>
 		<small class="product-category emphasis">
