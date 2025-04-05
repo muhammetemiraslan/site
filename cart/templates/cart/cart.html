@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% load static %} {% block title %}cart{% endblock %} {% block content %}
+<h2>Sepet</h2>
+<ul>
+	{% for item in cart_items %}
+    <br />
+	<img src="{{ item.image }}" alt="{{ item.product.title }}" class="product-img" style="height: 100px; width: 100px" />
+	<br />
+	<li>{{ item.product.title }} - {{ item.quantity }} x {{ item.product.price }} = {{ item.subtotal }}</li>
+</ul>
+<p><strong>Toplam: {{ total_price }}$</strong></p>
+<br />
+<form action="{% url 'remove_from_cart' item.product.id %}" method="POST">
+	{% csrf_token %}
+	<button type="submit" class="btn btn-danger">Sil</button>
+    
+</form>
+{% endfor %}
+<br />
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+{% endblock %}
