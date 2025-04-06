@@ -26,7 +26,7 @@ def cart_detail(request):
             }
         )
 
-    total_without_cargo = total_price - cargo_price
+    total_without_cargo = total_price + cargo_price
 
     return render(
         request,

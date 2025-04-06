@@ -29,7 +29,7 @@
 			<!-- cards -->
 			<li class="cart-card">
 				<img src="{{ item.image }}" alt="" class="cart-card-img" />
-				<a href="#" class="cart-card-link">
+				<a href="{% url 'product-details' item.product.slug %}" class="cart-card-link">
 					<h4>{{item.product.title}}</h4>
 				</a>
 				<div class="quantity-container">

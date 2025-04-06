@@ -63,7 +63,6 @@ def product_details(request, slug):
     cart = request.session.get('cart', {})  
     cart_quantity = cart.get(str(products.id), 0)
 
-    # Sonuçları şablona gönderiyoruz
     return render(
         request,
         "siteapp/product-details.html",
