@@ -5,9 +5,9 @@
 		</a>
 		<nav class="nav">
 			<ul>
-				<li><a href="{% url 'Category' %}">category</a></li>
+				{% comment %} <li><a href="{% url 'Category' %}">category</a></li>
 				<li><a href="{% url 'promo' %}">promo</a></li>
-				<li><a href="{% url 'interior-design' %}">interior design</a></li>
+				<li><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
 				<li><a href="{% url 'products' %}">products</a></li>
 				<li><a href="{% url 'cart_detail' %}">sepet</a></li>
 			</ul>
@@ -27,11 +27,11 @@
 	<article class="off-screen-menu">
 		<nav class="off-screen-nav">
 			<ul>
-				<li><a href="{% url 'Category' %}">category</a></li>
-				<li><a href="{% url 'promo' %}">promo</a></li>
-				<li><a href="{% url 'interior-design' %}">interior design</a></li>
-				<li><a href="{% url 'products' %}">products</a></li>
-				<li><a href="{% url 'cart_detail' %}">sepet</a></li>
+				{% comment %} <li><a href="{% url 'Category' %}">category</a></li>
+				<li class="off-screen-nav--item"><a href="{% url 'promo' %}">promo</a></li>
+				<li class="off-screen-nav--item"><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
+				<li class="off-screen-nav--item"><a href="{% url 'products' %}">products</a></li>
+				<li class="off-screen-nav--item"><a href="{% url 'cart_detail' %}">sepet</a></li>
 			</ul>
 		</nav>
 	</article>

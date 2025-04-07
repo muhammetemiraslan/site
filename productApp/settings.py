@@ -25,10 +25,10 @@ SECRET_KEY = "django-insecure-esu+1n2t9t-xcm3^)g6x%mp((+vx9^!_1_!_!=w3uv%v4-6@7d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','https://6575-46-2-56-89.ngrok-free.app']
+ALLOWED_HOSTS = ["*", "https://dc74-46-2-56-89.ngrok-free.app"]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://6575-46-2-56-89.ngrok-free.app',  # Geçici ngrok URL'nizi buraya ekleyin
+    "https://dc74-46-2-56-89.ngrok-free.app",  # Geçici ngrok URL'nizi buraya ekleyin
 ]
 
 # Application definition
@@ -70,7 +70,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "siteapp.context_processors.site_info"
+                "siteapp.context_processors.site_info",
             ],
         },
     },
@@ -127,12 +127,12 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'uploads' # mal olan ben tarafından tarafım uyarılır uploads/+projename
+MEDIA_URL = "/media/"
+MEDIA_ROOT = (
+    BASE_DIR / "uploads"
+)  # mal olan ben tarafından tarafım uyarılır uploads/+projename
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
