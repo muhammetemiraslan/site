@@ -36,6 +36,7 @@ CSRF_TRUSTED_ORIGINS = [
 INSTALLED_APPS = [
     "siteapp",
     "order",
+    "siteConfigurations",
     "cart",
     "django.contrib.admin",
     "django.contrib.auth",
