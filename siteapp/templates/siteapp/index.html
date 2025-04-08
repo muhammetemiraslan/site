@@ -29,25 +29,23 @@
 	<header>
 		<!-- center etiketi düzeltilmeli -->
 		<center>
-			<h3 class="section-category-text ">POPULAR</h3>
+			<h3 class="section-category-text">POPULAR</h3>
 			<h2 class="section-heading-text">Furniture Sale Now On!</h2>
 		</center>
 	</header>
 
 	<div class="popular-cards">
-		{% for product in products%} 
-			{% if product.is_home %}
-				<article>
-					<a href="{% url 'product-details' product.slug %}" class="popular-card">
-						<img src="{{product.image.url}}" alt="meta info for image" class="popular-card-img" />
-						<div class="product-info">
-							<p class="product-name">{{product.title}}</p>
-							<p class="product-price">${{product.price}}</p>
-						</div>
-					</a>
-				</article>
-			{% endif %} 
-		{% endfor %}
+		{% for product in products%} {% if product.is_home %}
+		<article>
+			<a href="{% url 'product-details' product.slug %}" class="popular-card">
+				<img src="{{product.image.url}}" alt="meta info for image" class="popular-card-img" />
+				<div class="product-info">
+					<p class="product-name">{{product.title}}</p>
+					<p class="product-price">${{product.price}}</p>
+				</div>
+			</a>
+		</article>
+		{% endif %} {% endfor %}
 	</div>
 </section>
 
@@ -59,49 +57,39 @@
 	</header>
 
 	<ul class="category-cards">
+		{% for category in categories %}
 		<li>
-			<a href="#" class="category-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
-				<p class="category-card-text">Living room</p>
+			<a href="{% url 'products-by-category' category.slug %}" class="category-card">
+				{% if category.products.first %}
+				<img src="{{ category.products.first.image.url }}" alt="#" class="category-card-img" />
+				{% endif %}
+				<p class="category-card-text">{{ category.name }}</p>
 			</a>
 		</li>
-		<li>
-			<a href="#" class="category-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
-				<p class="category-card-text">Living room</p>
-			</a>
-		</li>
-		<li>
-			<a href="#" class="category-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
-				<p class="category-card-text">Living room</p>
-			</a>
-		</li>
-		<li>
-			<a href="#" class="category-card">
-				<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="#" class="category-card-img" />
-				<p class="category-card-text">Living room</p>
-			</a>
-		</li>
+		{% endfor %}
 	</ul>
 </section>
 
 <!-- AMBITIONS SECTION -->
 <section class="section ambitions-section two-column-section">
+	{% if products %}
 	<div class="section-left">
-		<img src="{% static 'images/—Pngtree—macaron diet product photography picture_6673966.png' %}" alt="" class="ambitions-img" />
-	</div>
-
-	<div class="section-right">
-		<article class="ambitions-content">
-			<header>
-				<h3 class="section-category-text">our ambitions</h3>
-				<h2 class="section-heading-text">Pioneering innovation and excellence in furniture</h2>
-			</header>
-			<p class="ambitions-text">Striving for excellence in every detail, we are committed to revolutionizing the online shopping experience. Our ambition is to set new standards in quality, customer satisfaction, and sustainability, ensuring that every purchase from our platform is a step towards a brighter, more innovative future.</p>
-			<button class="btn">Learn more</button>
-		</article>
-	</div>
+			<img src="{{ products.0.image.url }}" alt="{{ products.0.name }}" class="ambitions-img" />
+		</div>
+		
+		<div class="section-right">
+			<article class="ambitions-content">
+				<header>
+					<h3 class="section-category-text">our ambitions</h3>
+					<h2 class="section-heading-text">Pioneering innovation and excellence in furniture</h2>
+				</header>
+				<p class="ambitions-text">Striving for excellence in every detail, we are committed to revolutionizing the online shopping experience. Our ambition is to set new standards in quality, customer satisfaction, and sustainability, ensuring that every purchase from our platform is a step towards a brighter, more innovative future.</p>
+				<a href="{% url 'product-details' slug=products.0.slug %}">
+					<button class="btn">Learn more</button>
+				</a>
+			</article>
+		</div>
+	{% endif %}
 </section>
 
 <!-- SECTION EMPHASIS -->
@@ -119,3 +107,4 @@
 </section>
 
 {% endblock %}
+

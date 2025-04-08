@@ -13,3 +13,8 @@ def navbar_items(request):
     return {
         'navbar_items': NavbarItem.objects.filter(is_active=True)
     }
+
+def categories(request):
+    return {
+        "f_categories": category.objects.all()[:5],
+    }
