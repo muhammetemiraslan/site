@@ -73,6 +73,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "siteapp.context_processors.site_info",
                 "siteapp.context_processors.categories",
+                "siteapp.context_processors.navbar_items",
             ],
         },
     },

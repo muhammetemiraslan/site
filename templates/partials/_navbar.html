@@ -6,11 +6,21 @@
 		<nav class="nav">
 			<ul>
 				{% comment %} <li><a href="{% url 'Category' %}">category</a></li>
-				<li><a href="{% url 'promo' %}">promo</a></li>
-				<li><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
-				<li><a href="{% url 'products' %}">products</a></li>
-				<li><a href="{% url 'cart_detail' %}">sepet</a></li>
+					<li><a href="{% url 'promo' %}">promo</a></li>
+					<li><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
+				{% comment %} 				
+					<li><a href="{% url 'products' %}">products</a></li>
+					<li><a href="{% url 'cart_detail' %}">sepet</a></li>
+			 	{% endcomment %}
+
+				{% for item in navbar_items %}
+				{% if item.get_absolute_url != '#' %}
+						<li><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
+					{% endif %}
+				{% endfor %}
+			
 			</ul>
+			
 		</nav>
 	</div>
 
