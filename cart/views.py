@@ -7,6 +7,7 @@ from decimal import Decimal
 
 
 def cart_detail(request):
+    # categories = category.objects.all()
     cart = request.session.get("cart", {})
     cart_items = []
     total_price = 0
@@ -36,6 +37,7 @@ def cart_detail(request):
             "total_price": total_price,
             "total_without_cargo": total_without_cargo,
             "cargo_price": cargo_price,
+            # "categories": categories,
         },
     )
 

@@ -5,5 +5,5 @@ def site_info(request):
 
 def categories(request):
     return {
-        "categories": category.objects.all()[:5],
+        "f_categories": category.objects.all()[:5],
     }

@@ -2,7 +2,7 @@
 <footer class="section footer">
 	<div class="footer-container container">
 		<header class="footer-logo">
-			<a href="#">
+			<a href="{% url 'home' %}">
 				<h2>AIKE</h2>
 			</a>
 		</header>
@@ -11,32 +11,22 @@
 			<div class="footer-column">
 				<h3 class="footer-column--title">Company</h3>
 				<ul class="footer-column--links">
-					<li><a href="#">About</a></li>
-					<li><a href="#">Shop</a></li>
-					<li><a href="#">Careers</a></li>
-					<li><a href="#">FAQ</a></li>
+					<li><a href="{% url 'about' %}">About</a></li>
+					<li><a href="{% url 'products' %}">Shop</a></li>
+					<li><a href="{% url 'Category' %}">Category</a></li>
+					<li><a href="{% url 'promo' %}">Promo</a></li>
 				</ul>
 			</div>
 
 			<div class="footer-column">
 				<h3 class="footer-column--title">Category</h3>
 				<ul class="footer-column--links">
-					<li><a href="#">Living Room</a></li>
-					<li><a href="#">Dining Room</a></li>
-					<li><a href="#">Home Office</a></li>
-					<li><a href="#">Bedroom</a></li>
-					<li><a href="#">Outdoor</a></li>
+					{% for category in f_categories %}
+						<li><a href="{% url 'products-by-category' category.slug %}">{{category.name}}</a></li>
+					{% endfor %}
 				</ul>
 			</div>
 
-			{% comment %} <div class="footer-column">
-				<h3 class="footer-column--title">Category</h3>
-				<ul class="footer-column--links">
-					{% for category in categories %}
-						<li><a href="{% url 'products-by-category' category.slug %}">{{ category.name }}</a></li>
-					{% endfor %}
-				</ul>
-			</div> {% endcomment %}
 
 			<div class="footer-column newsletter">
 				<h3 class="footer-column--title">Join our newsletter</h3>
