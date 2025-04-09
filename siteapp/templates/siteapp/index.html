@@ -81,9 +81,10 @@
 			<article class="ambitions-content">
 				<header>
 					<h3 class="section-category-text">our ambitions</h3>
-					<h2 class="section-heading-text">Pioneering innovation and excellence in furniture</h2>
+					{% comment %} <h2 class="section-heading-text">Pioneering innovation and excellence in furniture</h2> {% endcomment %}
+					<h2 class="section-heading-text">{{products.0.title|title}}</h2>
 				</header>
-				<p class="ambitions-text">Striving for excellence in every detail, we are committed to revolutionizing the online shopping experience. Our ambition is to set new standards in quality, customer satisfaction, and sustainability, ensuring that every purchase from our platform is a step towards a brighter, more innovative future.</p>
+				<p class="ambitions-text">{{products.0.description|truncatewords:40}}</p>
 				<a href="{% url 'product-details' slug=products.0.slug %}">
 					<button class="btn">Learn more</button>
 				</a>

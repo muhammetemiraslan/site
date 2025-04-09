@@ -40,8 +40,16 @@
 				{% comment %} <li><a href="{% url 'Category' %}">category</a></li>
 				<li class="off-screen-nav--item"><a href="{% url 'promo' %}">promo</a></li>
 				<li class="off-screen-nav--item"><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
-				<li class="off-screen-nav--item"><a href="{% url 'products' %}">products</a></li>
-				<li class="off-screen-nav--item"><a href="{% url 'cart_detail' %}">sepet</a></li>
+				{% comment %} <li class="off-screen-nav--item"><a href="{% url 'products' %}">products</a></li>
+				<li class="off-screen-nav--item"><a href="{% url 'cart_detail' %}">sepet</a></li> {% endcomment %}
+
+
+				{% for item in navbar_items %}
+				{% if item.get_absolute_url != '#' %}
+						<li class="off-screen-nav--item"><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
+					{% endif %}
+				{% endfor %}
+				
 			</ul>
 		</nav>
 	</article>

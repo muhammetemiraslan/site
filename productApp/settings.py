@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+import tinify
+load_dotenv()
+
+TINIFY_API_KEY = os.getenv("TINIFY_API_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+tinify.key = TINIFY_API_KEY
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -25,10 +32,10 @@ SECRET_KEY = "django-insecure-esu+1n2t9t-xcm3^)g6x%mp((+vx9^!_1_!_!=w3uv%v4-6@7d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "https://1938-46-2-56-89.ngrok-free.app"]
+ALLOWED_HOSTS = ["*", "https://14c8-46-2-58-15.ngrok-free.app"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://1938-46-2-56-89.ngrok-free.app",  # Geçici ngrok URL'nizi buraya ekleyin
+    "https://14c8-46-2-58-15.ngrok-free.app",  # Geçici ngrok URL'nizi buraya ekleyin
 ]
 
 # Application definition
