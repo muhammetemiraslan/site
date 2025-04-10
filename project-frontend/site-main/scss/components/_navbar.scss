@@ -10,7 +10,31 @@
     gap: px-to-rem(60);
   }
 
-  .navbar-right {
+  .navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cart-icon-wrapper{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .cart-icon-counter-wrapper{
+      visibility: visible;
+      position: absolute;
+      color: #27ae60;
+      top: 0;
+      left: 35px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .nav-toggle-btn {
     display: none;
     @include respond-to(small) {
       display: block;
@@ -23,20 +47,22 @@
       font-size: 0.5rem;
     }
   }
-
+  
   .nav ul {
     display: flex;
     align-items: center;
     cursor: pointer;
-    gap: px-to-rem(30);
-    //typography
+    gap: px-to-rem(15);
+    flex-wrap: wrap; // Taşmayı önlemek için wrap
     text-transform: capitalize;
     font-size: 0.9rem;
+  
     @include respond-to(small) {
       font-size: 0.5rem;
       gap: px-to-rem(15);
       display: none;
     }
+  
     :hover {
       text-decoration: underline;
     }
@@ -111,6 +137,7 @@
 }
 
 /* off-screen-menu */
+
 .off-screen-menu {
   display: none;
   @include respond-to(small) {

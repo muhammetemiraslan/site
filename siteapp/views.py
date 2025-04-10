@@ -5,7 +5,7 @@ from .models import product, category
 def home(request):
     products = product.objects.all()[:4]
 
-    categories = category.objects.all()[:3]
+    categories = category.objects.all()[:8]
 
     return render(
         request,
@@ -28,6 +28,7 @@ def about(request):
 def products(request):
 
     products = product.objects.all()
+    products_list = product.objects.all()
 
     categories = category.objects.all()[:8]
 

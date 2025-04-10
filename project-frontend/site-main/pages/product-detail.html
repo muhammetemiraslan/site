@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product-detail</title>
+
+    <link rel="stylesheet" href="../scss/style.css">
+
+</head>
+
+<body>
+
+    <main class="container">
+        <!-- UPDATED HEADING(NAVBAR) -->
+        <header class="navbar">
+            <!-- navbar links -->
+            <div class="navbar-left">
+                <a href="../index.html" class="brand">
+                    <h1>AIKE</h1>
+                </a>
+                <nav class="nav">
+                    <ul>
+                        <li class="nav-link"><a href="#">Ana Sayfa</a></li>
+                        <li class="nav-link"><a href="#category-section">kategoriler</a></li>
+                        <li class="nav-link"><a href="#">hakkımızda</a></li>
+                        <li class="nav-link"><a href="pages/products.html">Tüm ürünler</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- UPDATED NAVBAR-RIGHT -->
+            <div class="navbar-right">
+                <div class="cart-icon-wrapper">
+                    <a href="pages/cart.html">
+                        <div class="cart-icon-counter-wrapper ">
+                            <span class="cart-icon-counter">12</span>
+                        </div>
+                        <img 
+                            src="../images/shopping-cart.svg" 
+                            alt="Alışveriş sepeti ikonu"
+                            width="24"
+                            height="24"    
+                        >
+                    </a>
+                </div>
+                <button id="navbtn" class="nav-toggle-btn ">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+
+            <!-- off screen menu -->
+            <article class="off-screen-menu ">
+                <nav class="off-screen-nav">
+                    <ul>
+                        <li class="off-screen-nav--item"><a href="#">category</a></li>
+                        <li class="off-screen-nav--item"><a href="#">promo</a></li>
+                        <li class="off-screen-nav--item"><a href="#">interior design</a></li>
+                        <li class="off-screen-nav--item"><a href="pages/products.html">products</a></li>
+                    </ul>
+                </nav>
+            </article>
+
+        </header>
+
+        <!-- updated NEW PRODUCT DETAIL SECTION -->
+        <section class="section ">
+            <div class="product-detail-grid ">
+
+                <div class="product-detail-gallery">
+                    <div class="product-detail-gallery-main-img-container ">
+                        <img id="mainImage" src="../images/product-image/product-1/img1.jpg" alt="Ana görsel"
+                            class="product-detail-gallery-main-img">
+                    </div>
+                    <div class="product-detail-gallery-thumbnails">
+                        <img src="../images/product-image/product-1/img1.jpg" onclick="changeImage(this)">
+                        <img src="../images/product-image/product-1/img2.jpg" onclick="changeImage(this)">
+                        <img src="../images/product-image/product-1/img3.jpg" onclick="changeImage(this)">
+                        <img src="../images/product-image/product-1/img4.jpg" onclick="changeImage(this)">
+                        <img src="../images/product-image/product-1/img5.jpg" onclick="changeImage(this)">
+                        <img src="../images/product-image/product-1/img6.jpg" onclick="changeImage(this)">
+                        <img src="../images/product-image/product-1/img1.jpg" onclick="changeImage(this)">
+                    </div>
+
+                </div>
+
+                <div class="product-detail-info">
+                    <div class="product-detail-info-advantage">#1 en çok satanlar da 1.sırada </div>
+                    <div class="product-detail-info-name">Macbook air m2 sdafhalksdhf kdsahf şkasdhf dshflksdah fkdshkfl
+                        hasdlk fhdslkfh şskdh flsdkh</div>
+                    <div class="product-detail-info-rating">
+                        ⭐ 4.8 <span class="review-count">| 89 yorum</span>
+                    </div>
+                    <div class="ticket-container">
+                        <div class="ticket-fast-delivery">hızlı <br> teslimat</div>
+                        <div class="ticket-free-cargo">kargo <br> bedava</div>
+                    </div>
+                    <div class="product-detail-info-category-text">
+                        Category: Laptop,bilgisayar
+                    </div>
+                    <div class="product-detail-info-price">
+                        <small class="product-card-info-price-discount product-card-info-price-discount-active"><span
+                                class="strikethrough">192$</span> indirim!</small>
+                        <h2>134$</h2>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <button class="qty-btn">-</button>
+                        <input type="number" class="qty-input" value="1" min="1">
+                        <button class="qty-btn">+</button>
+                    </div>
+                    <div class="product-detail-info-add-to-cart">
+                        Sepete Ekle
+                    </div>
+
+                    <div class="product-detail-info-desc">Ürün açıklamasıdır bu bir ürün açıklamasıdır
+                        uzunyazılarıtestediyorum</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- updated NEW PRODUCT DESC AND COMMENT SECTION -->
+        <section class="section related-products-section">
+            <header class="section-header">
+                <h2 class="section-heading-text">Ürün açıklaması</h2>
+            </header>
+            <p>bu bir ürün açıkalamasıdır a flksdaf lkdasnf klşdsaflk nsdşkafn dsjka fsjkdba sjkdb fjlksbdj fasjkf sjkdb fjsadb fjksbdjfk sbdjka fsjldb fsjdba fjsdbf jkdbs jsabd fjksbda fjksbdjkf sdaj dsjka fkjasdb fjsdb fjkasbdfl</p>
+        </section>
+
+        <!-- updated NEW RELATED PRODUCT SECTION -->
+        <section class="section related-products-section">
+            <header class="section-header">
+                <h2 class="section-heading-text">benzer ürünler</h2>
+            </header>
+            <div class="product-grid">
+
+                <div class="product-card" id="product-card">
+                    <a href="product.html">
+                        <img src="../images/product-image/product-4/img1.jpg"
+                            alt="product photoge" class="product-card-img ">
+                    </a>
+                    <div class="product-card-info ">
+                        <div class="product-card-info-name">
+                            <a href="product.html">
+                                makaron 
+                            </a>
+                        </div>
+                        <div class="product-card-info-advantage">ücretsiz kargo</div>
+                        <div class="product-card-info-rating">
+                            ⭐ 4.8 <span class="review-count">| 89 yorum</span>
+                        </div>
+                        <div class="product-card-info-price">
+                            <small class="product-card-info-price-discount product-card-info-price-discount-active"><span class="strikethrough">192$</span> indirim!</small>
+                            <h2>134$</h2>
+                        </div>
+                        <button class="add-to-cart" id="add-to-cart">Sepete ekle</button>
+                    </div>
+                </div>
+                <!-- end of product card -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="section footer ">
+        <div class="footer-container container">
+
+            <header class="footer-logo  ">
+                <a href="#">
+                    <h2>AIKE</h2>
+                </a>
+            </header>
+
+            <nav class="footer-links ">
+
+                <div class="footer-column ">
+                    <h3 class="footer-column--title">Company</h3>
+                    <ul class="footer-column--links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column ">
+                    <h3 class="footer-column--title">Category</h3>
+                    <ul class="footer-column--links">
+                        <li><a href="#">Living Room</a></li>
+                        <li><a href="#">Dining Room</a></li>
+                        <li><a href="#">Home Office</a></li>
+                        <li><a href="#">Bedroom</a></li>
+                        <li><a href="#">Outdoor</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column newsletter ">
+                    <h3 class="footer-column--title">Join our newsletter</h3>
+                    <form>
+                        <input type="email" placeholder="Email">
+                        <button type="submit">→</button>
+                    </form>
+                </div>
+
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="footer-bottom">
+                <p>Copyright © 2025 AIKE. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms of Condition</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+	<!-- ==== UPDATED  ==== -->
+	<script src="../scripts/product-card.js"></script>
+    <script src="../scripts/product-detail-gallery.js"></script>
+    <script src="../scripts/nav-toggle.js"></script>
+    <!-- ==== UPDATED ==== -->
+</body>
+
+</html>

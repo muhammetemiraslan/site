@@ -1,3 +1,4 @@
+{% load static %}
 <header class="navbar">
 	<div class="navbar-left">
 		<a href="{% url 'home' %}" class="brand">
@@ -5,51 +6,48 @@
 		</a>
 		<nav class="nav">
 			<ul>
-				{% comment %} <li><a href="{% url 'Category' %}">category</a></li>
-					<li><a href="{% url 'promo' %}">promo</a></li>
-					<li><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
-				{% comment %} 				
-					<li><a href="{% url 'products' %}">products</a></li>
-					<li><a href="{% url 'cart_detail' %}">sepet</a></li>
-			 	{% endcomment %}
-
-				{% for item in navbar_items %}
-				{% if item.get_absolute_url != '#' %}
-						<li><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
-					{% endif %}
-				{% endfor %}
-			
+				{% for item in navbar_items %} {% if item.get_absolute_url != '#' %}
+				<li class="nav-link"><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
+				{% endif %} {% endfor %}
 			</ul>
-			
 		</nav>
 	</div>
 
 	<!-- the hamburger -->
 	<div class="navbar-right">
-		<button id="navbtn" class="nav-toggle-btn">
-			<span class="line"></span>
-			<span class="line"></span>
-			<span class="line"></span>
-		</button>
+		<div class="cart-icon-wrapper">
+
+			<div class="cart-icon-wrapper">
+				<a href="{% url 'cart_detail' %}">
+					<div class="cart-icon-counter-wrapper">
+						<span class="cart-icon-counter">{{ total_items }}</span>
+					</div>
+					<img src="{% static 'uploads/shopping-cart.svg' %}" alt="Alışveriş sepeti ikonu" width="24" height="24" />
+				</a>
+			</div>
+			
+			<button id="navbtn" class="nav-toggle-btn">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</button>
+		</div>
 	</div>
 
 	<!-- off screen menu -->
 	<article class="off-screen-menu">
 		<nav class="off-screen-nav">
 			<ul>
-				{% comment %} <li><a href="{% url 'Category' %}">category</a></li>
+				{% comment %}
+				<li><a href="{% url 'Category' %}">category</a></li>
 				<li class="off-screen-nav--item"><a href="{% url 'promo' %}">promo</a></li>
-				<li class="off-screen-nav--item"><a href="{% url 'interior-design' %}">interior design</a></li> {% endcomment %}
-				{% comment %} <li class="off-screen-nav--item"><a href="{% url 'products' %}">products</a></li>
-				<li class="off-screen-nav--item"><a href="{% url 'cart_detail' %}">sepet</a></li> {% endcomment %}
-
-
-				{% for item in navbar_items %}
-				{% if item.get_absolute_url != '#' %}
-						<li class="off-screen-nav--item"><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
-					{% endif %}
-				{% endfor %}
-				
+				<li class="off-screen-nav--item"><a href="{% url 'interior-design' %}">interior design</a></li>
+				{% endcomment %} {% comment %}
+				<li class="off-screen-nav--item"><a href="{% url 'products' %}">products</a></li>
+				<li class="off-screen-nav--item"><a href="{% url 'cart_detail' %}">sepet</a></li>
+				{% endcomment %} {% for item in navbar_items %} {% if item.get_absolute_url != '#' %}
+				<li class="off-screen-nav--item"><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
+				{% endif %} {% endfor %}
 			</ul>
 		</nav>
 	</article>

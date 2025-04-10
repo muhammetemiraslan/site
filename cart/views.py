@@ -72,7 +72,7 @@ def add_to_cart(request, product_id):
         cart[str(product_id)] = quantity
 
     request.session["cart"] = cart
-    return redirect("cart_detail")
+    return redirect("products")
 
 
 def remove_from_cart(request, product_id):

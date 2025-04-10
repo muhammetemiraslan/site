@@ -1,0 +1,14 @@
+@import 'popular-card';
+@import 'category-card';
+@import 'product-card';
+@import 'cart-card';
+
+.products-dropdown{
+  appearance: none;
+  padding: px-to-rem(15);
+  border: px-to-rem(3) solid $white-color;
+  outline: none;
+  font-family: $regular-font;
+
+}
+

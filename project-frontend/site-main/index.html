@@ -13,7 +13,9 @@
 <body>
     <main class="container">
 
-        <!-- HEADING(NAVBAR) -->
+        <!-- ====================== UPDATED START ====================== -->
+
+        <!-- UPDATED HEADING(NAVBAR) -->
         <header class="navbar">
             <!-- navbar links -->
             <div class="navbar-left">
@@ -22,17 +24,29 @@
                 </a>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">category</a></li>
-                        <li><a href="#">promo</a></li>
-                        <li><a href="#">interior design</a></li>
-                        <li><a href="pages/products.html">products</a></li>
-                        <li><a href="pages/cart.html">ben bir sepetim (şimdilik)</a></li>
+                        <li class="nav-link"><a href="#">Ana Sayfa</a></li>
+                        <li class="nav-link"><a href="#category-section">kategoriler</a></li>
+                        <li class="nav-link"><a href="#">hakkımızda</a></li>
+                        <li class="nav-link"><a href="pages/products.html">Tüm ürünler</a></li>
                     </ul>
                 </nav>
             </div>
 
-            <!-- the hamburger -->
+            <!-- UPDATED NAVBAR-RIGHT -->
             <div class="navbar-right">
+                <div class="cart-icon-wrapper">
+                    <a href="pages/cart.html">
+                        <div class="cart-icon-counter-wrapper ">
+                            <span class="cart-icon-counter">12</span>
+                        </div>
+                        <img 
+                            src="images/shopping-cart.svg" 
+                            alt="Alışveriş sepeti ikonu"
+                            width="24"
+                            height="24"    
+                        >
+                    </a>
+                </div>
                 <button id="navbtn" class="nav-toggle-btn ">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -78,95 +92,226 @@
 
         </section>
 
-        <!-- POPULAR SECTION -->
-        <section class="section popular-section">
-
-            <header>
-                <!-- center etiketi düzeltilmeli -->
+        <!-- NEW POPULAR PRODUCTS SECTION -->
+        <section class="section">
+            <header class="section-header">
                 <center>
-                    <h3 class="section-category-text">POPULAR</h3>
-                    <h2 class="section-heading-text">Furniture Sale Now On!</h2>
+                    <h3 class="section-category-text">populer urunler</h3>
+                    <h2 class="section-heading-text">En sevilen urunler!</h2>
                 </center>
             </header>
 
-            <div class="popular-cards">
-                <article>
-                    <a href="#" class="popular-card ">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png"
-                            alt="meta info for image" class="popular-card-img">
-                        <div class="product-info">
-                            <p class="product-name">makaron</p>
-                            <p class="product-price">$20.50</p>
+            <div class="popular-grid">
+
+                <a href="#">
+                    <div class="popular-card ">
+                        <img src="images/product-image/productheadphones.jpg" alt="" class="popular-card-img">
+                        <div class="popular-card-info ">
+                            <div class="popular-card-info-advantage">#1 En çok satılan</div>
+                            <div class="popular-card-info-name">Monster ldsfhsdhf ljkashdf jkhsdafjk hdsaljf hsdajlhf
+                                jlkashdf
+                                jasdhfjk dshaf jkshdfjlk </div>
+                            <div class="popular-card-info-rating">
+                                ⭐ 4.8 <span class="review-count">| 89 yorum</span>
+                            </div>
+                            <div class="popular-card-info-price">
+                                <small class="popular-card-info-price-discount">indirim</small>
+                                <h2>134$</h2>
+                            </div>
+                            <div class="ticket-container ">
+                                <div class="ticket-fast-delivery">hızlı <br> teslimat</div>
+                                <div class="ticket-free-cargo">kargo <br> bedava</div>
+                            </div>
                         </div>
-                    </a>
-                </article>
-                <article>
-                    <a href="#" class="popular-card ">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png"
-                            alt="meta info for image" class="popular-card-img">
-                        <div class="product-info">
-                            <p class="product-name">makaron</p>
-                            <p class="product-price">$20.50</p>
+                    </div>
+                </a>
+                <!-- end of card -->
+                <a href="#">
+                    <div class="popular-card ">
+                        <img src="images/product-image/product-1/img1.jpg" alt="" class="popular-card-img">
+                        <div class="popular-card-info ">
+                            <div class="popular-card-info-advantage">#1 En çok satılan</div>
+                            <div class="popular-card-info-name">Monster</div>
+                            <div class="popular-card-info-rating">
+                                ⭐ 4.8 <span class="review-count">| 89 yorum</span>
+                            </div>
+                            <div class="popular-card-info-price">
+                                <small class="popular-card-info-price-discount">indirim</small>
+                                <h2>134$</h2>
+                            </div>
+                            <div class="ticket-container ">
+                                <div class="ticket-fast-delivery">hızlı <br> teslimat</div>
+                                <div class="ticket-free-cargo">kargo <br> bedava</div>
+                            </div>
                         </div>
-                    </a>
-                </article>
-                <article>
-                    <a href="#" class="popular-card ">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png"
-                            alt="meta info for image" class="popular-card-img">
-                        <div class="product-info">
-                            <p class="product-name">makaron</p>
-                            <p class="product-price">$20.50</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="popular-card ">
+                        <img src="images/product-image/product-4/img1.jpg" alt="" class="popular-card-img">
+                        <div class="popular-card-info ">
+                            <div class="popular-card-info-advantage">#1 En çok satılan</div>
+                            <div class="popular-card-info-name">Monster</div>
+                            <div class="popular-card-info-rating">
+                                ⭐ 4.8 <span class="review-count">| 89 yorum</span>
+                            </div>
+                            <div class="popular-card-info-price">
+                                <small class="popular-card-info-price-discount">indirim</small>
+                                <h2>134$</h2>
+                            </div>
+                            <div class="ticket-container ">
+                                <div class="ticket-fast-delivery">hızlı <br> teslimat</div>
+                                <div class="ticket-free-cargo">kargo <br> bedava</div>
+                            </div>
                         </div>
-                    </a>
-                </article>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="popular-card ">
+                        <img src="images/product-image/product-1/img1.jpg" alt="" class="popular-card-img">
+                        <div class="popular-card-info ">
+                            <div class="popular-card-info-advantage">#1 En çok satılan</div>
+                            <div class="popular-card-info-name">Monster</div>
+                            <div class="popular-card-info-rating">
+                                ⭐ 4.8 <span class="review-count">| 89 yorum</span>
+                            </div>
+                            <div class="popular-card-info-price">
+                                <small class="popular-card-info-price-discount">indirim</small>
+                                <h2>134$</h2>
+                            </div>
+                            <div class="ticket-container ">
+                                <div class="ticket-fast-delivery">hızlı <br> teslimat</div>
+                                <div class="ticket-free-cargo">kargo <br> bedava</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
             </div>
         </section>
 
-        <!-- CATEGORY SECTION -->
-        <section class="section category-section">
-
-            <header>
-                <h3 class="section-category-text">category</h3>
-                <h2 class="section-heading-text">Design your perfect home</h2>
-            </header>
-
-            <ul class="category-cards">
-                <li>
-                    <a href="#" class="category-card">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png" alt="#"
-                            class="category-card-img">
-                        <p class="category-card-text">Living room</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="category-card">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png" alt="#"
-                            class="category-card-img">
-                        <p class="category-card-text">Living room</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="category-card">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png" alt="#"
-                            class="category-card-img">
-                        <p class="category-card-text">Living room</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="category-card">
-                        <img src="images/—Pngtree—macaron diet product photography picture_6673966.png" alt="#"
-                            class="category-card-img">
-                        <p class="category-card-text">Living room</p>
-                    </a>
-                </li>
+        <!-- load more btn -->
+        <section class="section more-section">
+            <button class="btn btn-transparent btn-more">Daha fazla görüntüle -></button>
         </section>
+
+        <!-- NEW CATEGORY SECTION -->
+        <section class="section" id="category-section">
+            <header class="section-header">
+                <h3 class="section-category-text">kategoriler</h3>
+                <h2 class="section-heading-text">Aradığınız ne varsa burda!</h2>
+            </header>
+            <div class="category-grid">
+
+                <a href="pages/products.html">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/61sWdwY0yeL.__AC_SX300_SY300_QL70_ML2_.jpg" alt=""
+                                class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            Televizyon
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/71BCB4+8qWL._AC_SY300_SX300_.jpg" alt=""
+                                class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            giyilebilir teknolojiler
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/810SZsFGS2L._AC_SX679_.jpg" alt="" class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            Hoperlorler
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/productheadphones.jpg" alt="" class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            kulaklıklar
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/laptop-gorsel-1.png" alt="" class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            laptoplar
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/product-3/img1.jpg" alt="" class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            oyuncu laptopları
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/product-4/img1.jpg" alt="" class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            Akıllı telefonlar
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+                <a href="#">
+                    <div class="category-card">
+                        <div class="category-card-img-wrapper">
+                            <img src="images/product-image/product-1/img2.jpg" alt="" class="category-card-img">
+                        </div>
+                        <div class="category-card-name">
+                            iş bilgisayarları
+                        </div>
+                    </div>
+                </a>
+                <!-- end of category card -->
+
+            </div>
+        </section>
+
+        <!-- ====================== UPDATED end ====================== -->
 
         <!-- AMBITIONS SECTION -->
         <section class="section ambitions-section two-column-section ">
 
             <div class="section-left">
-                <img src="images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
+                <img src="images/product-image/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
                     class="ambitions-img">
             </div>
 

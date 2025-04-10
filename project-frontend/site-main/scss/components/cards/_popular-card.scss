@@ -1,0 +1,111 @@
+.popular-card {
+  border: 1px solid gainsboro;
+  max-width: 260px;
+  min-width: 170px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 1rem gainsboro;
+    .popular-card-img {
+      scale: 0.8;
+    }
+  }
+
+  &-img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    scale: 0.75;
+    transition: all 0.3s ease;
+  }
+
+  &-info {
+    padding: 0.5rem;
+
+    &-advantage {
+      background: linear-gradient(45deg, #ff9800, #ffc800);
+      color: white;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    &-name {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: #333;
+      text-transform: capitalize;
+
+      height: calc(
+        2 * 1.2em
+      ); /* 3 satır yüksekliği, 1.2em her satır için yüksekliği ayarlıyor */
+      line-height: 1.2em; /* Her satır arasındaki boşluk */
+      overflow: hidden; /* Fazla metni gizler */
+    }
+
+    &-price {
+      color: #27ae60;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-block: 0.3rem;
+      &-discount {
+        color: #ae2727;
+        visibility: hidden;
+        font-size: 0.8rem;
+        font-weight: 400;
+        .strikethrough {
+          text-decoration: line-through;
+        }
+      }
+      &-discount-active {
+        visibility: visible;
+      }
+    }
+
+    &-rating {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #f39c12;
+      .review-count {
+        font-size: 0.8rem;
+        color: #777;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .ticket-container {
+    width: 80px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    .ticket-fast-delivery,
+    .ticket-free-cargo {
+      background-color: #27ae60;
+      color: white;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .ticket-free-cargo {
+      background-color: #3f3f3ffa;
+    }
+  }
+}

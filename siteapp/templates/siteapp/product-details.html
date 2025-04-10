@@ -1,62 +1,118 @@
 {% extends "base.html" %} {% load static %} {% block title %}product details{% endblock %} {% block content %}
 
-<section class="section product-section two-column-section">
-	<div class="section-left box">
-		<img src="{{products.image.url}}" alt="Two makaron blue and yellow on each other" class="product-img" />
-	</div>
-
-	<div class="section-right">
-		<div class="box">
-			<h1 class="product-name">{{products.title}}</h1>
-			<small class="product-view-count emphasis">23.754 defa görüntülendi</small>
+<section class="section">
+	<div class="product-detail-grid">
+		<div class="product-detail-gallery">
+			<div class="product-detail-gallery-main-img-container">
+				<img id="mainImage" src="{{products.image.url}}" alt="Two makaron blue and yellow on each other" class="product-detail-gallery-main-img" />
+			</div>
+			<div class="product-detail-gallery-thumbnails">
+				<img src="{% static 'uploads/img1.jpg' %}" onclick="changeImage(this)" />
+				<img src="{% static 'uploads/img2.jpg' %}" onclick="changeImage(this)" />
+				<img src="{% static 'uploads/img1.jpg' %}" onclick="changeImage(this)" />
+				<img src="{% static 'uploads/img2.jpg' %}" onclick="changeImage(this)" />
+				<img src="{% static 'uploads/img1.jpg' %}" onclick="changeImage(this)" />
+				<img src="{% static 'uploads/img2.jpg' %}" onclick="changeImage(this)" />
+				<img src="{% static 'uploads/img1.jpg' %}" onclick="changeImage(this)" />
+			</div>
 		</div>
-		<p class="product-desc">{{products.description|truncatewords:15}}</p>
-		<h1 class="product-price">{{products.price}}$</h1>
-		<form action="{% url 'add_to_cart' products.id %}" method="post" class="product-addchart">
-			{% csrf_token %}
-			<article action="{% url 'add_to_cart' products.id %}" method="post" class="product-addchart">
-				<input class="product-chart-count" type="number" id="quantity" name="quantity" min="1" max="10" value="1" required />
-				<button type="submit" class="btn">sepete ekle</button>
-				{% if cart_quantity > 0 %}
-				<p class="product-desc">Sepette bu üründen {{ cart_quantity }} tane bulunmaktadır.</p>
-				{% endif %}
-			</article>
-		</form>
-		<small class="product-category emphasis">
-			Categories: {% for category in categories %}
-			<a href="{% url 'products-by-category' category.slug %}" class="category-link">{{category.name}}</a>	
-			{% if not forloop.last %}, {% endif %} {% endfor %}
-		</small>
+
+		<div class="product-detail-info">
+			<div class="product-detail-info-advantage">#1 en çok satanlar da 1.sırada</div>
+			<div class="product-detail-info-name">{{products.title}}</div>
+			<div class="product-detail-info-rating">
+				⭐ 4.8
+				<span class="review-count">| 89 yorum</span>
+			</div>
+			<div class="ticket-container">
+				<div class="ticket-fast-delivery">
+					hızlı
+					<br />
+					teslimat
+				</div>
+				<div class="ticket-free-cargo">
+					kargo
+					<br />
+					bedava
+				</div>
+			</div>
+			<div class="product-detail-info-category-text">
+				Kategori: {% for category in categories %}
+				<a href="{% url 'products-by-category' category.slug %}" class="category-link">{{category.name}}</a>
+				{% if not forloop.last %}, {% endif %} {% endfor %}
+			</div>
+			<div class="product-detail-info-price">
+				<small class="product-card-info-price-discount product-card-info-price-discount-active">
+					<span class="strikethrough">192$</span>
+					indirim!
+				</small>
+				<h2>{{products.price}}$</h2>
+			</div>
+			<form id="form-cart" action="{% url 'add_to_cart' products.id %}" method="post" class="product-addchart">
+				{% csrf_token %}
+				<div class="quantity-selector">
+					<button type="button" class="qty-btn" id="decrease">-</button>
+					<input type="number" class="qty-input" value="1" min="1" max="10" id="quantity" name="quantity" required />
+					<button type="button" class="qty-btn" id="increase">+</button>
+				</div>
+				<div class="product-detail-info-add-to-cart" id="addToCart">Sepete Ekle</div>
+				<div class="product-detail-info-desc">{% if cart_quantity > 0 %} Sepette bu üründen {{ cart_quantity }} tane bulunmaktadır. {% endif %}</div>
+			</form>
+		</div>
 	</div>
 </section>
 
-<section class="section product-section">
-	<div class="product-info-buttons">
-		<button class="btn btn-transparent" id="desc-btn">Description</button>
-		<button class="btn btn-transparent" id="review-btn">Rewievs</button>
-	</div>
-	<h2>Description</h2>
-	<p class="product-desc">{{products.description}}</p>
+<section class="section related-products-section">
+	<header class="section-header">
+		<h2 class="section-heading-text">Ürün açıklaması</h2>
+	</header>
+	<p>{{products.description}}</p>
 </section>
 
 {% comment %} ilgili {% endcomment %}
-<section class="section related-section">
-	<h3 class="section-heading-text">Related Products</h3>
-	<div class="related-products">
+<section class="section related-products-section">
+	<header class="section-header">
+		<h2 class="section-heading-text">benzer ürünler</h2>
+	</header>
+
+	<div class="product-grid">
 		{% for product in related_products %}
-		<a href="{% url 'product-details' product.slug %}">
-			<article class="product-card">
+
+		<div class="product-card" id="product-card">
+			<a href="{% url 'product-details' product.slug %}">
 				<img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-card-img" />
-				<div class="product-card-info">
-					<p class="product-card-text">{{ product.title }}</p>
-					<p class="product-card-price">${{ product.price }}</p>
+			</a>
+			<div class="product-card-info">
+				<div class="product-card-info-name">
+					<a href="{% url 'product-details' product.slug %}">{{ product.title }}</a>
 				</div>
-			</article>
-		</a>
+				<a href="{% url 'product-details' product.slug %}">
+					<div class="product-card-info-advantage">ücretsiz kargo</div>
+					<div class="product-card-info-rating">
+						⭐ 4.8
+						<span class="review-count">| 89 yorum</span>
+					</div>
+					<div class="product-card-info-price">
+						<small class="product-card-info-price-discount product-card-info-price-discount-active">
+							<span class="strikethrough">192$</span>
+							indirim!
+						</small>
+						<h2>{{ product.price }}$</h2>
+					</div>
+				</a>
+				<form action="{% url 'add_to_cart' product.id %}" method="post" class="product-addchart">
+					{% csrf_token %}
+					<input type="hidden" name="quantity" value="1" />
+					<button type="submit" class="add-to-cart" id="add-to-cart">Sepete ekle</button>
+				</form>
+			</div>
+		</div>
+
 		{% empty %}
-		<p>No related products available.</p>
+		<p>Benzer Ürün Bulunmamaktadır.</p>
 		{% endfor %}
 	</div>
+
 	<!-- load more btn -->
 	<section class="section more-section">
 		{% for category in categories %}
@@ -68,27 +124,5 @@
 		{% endfor %}
 	</section>
 </section>
-
-<script>
-	let x = false;
-	let descBtn = document.getElementById("desc-btn");
-	descBtn.classList.add("active");
-	x = true;
-	let reviewBtn = document.getElementById("review-btn");
-	reviewBtn.addEventListener("click", function () {
-		if (x) {
-			descBtn.classList.remove("active");
-			reviewBtn.classList.add("active");
-			x = false;
-		}
-	});
-	descBtn.addEventListener("click", function () {
-		if (!x) {
-			descBtn.classList.add("active");
-			reviewBtn.classList.remove("active");
-			x = true;
-		}
-	});
-</script>
 
 {% endblock %}

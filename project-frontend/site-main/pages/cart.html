@@ -12,7 +12,7 @@
 <body>
     <main class="container">
 
-        <!-- HEADING(NAVBAR) -->
+        <!-- UPDATED HEADING(NAVBAR) -->
         <header class="navbar">
             <!-- navbar links -->
             <div class="navbar-left">
@@ -21,16 +21,24 @@
                 </a>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#">category</a></li>
-                        <li><a href="#">promo</a></li>
-                        <li><a href="#">interior design</a></li>
-                        <li><a href="./products.html">products</a></li>
+                        <li class="nav-link"><a href="#">Ana Sayfa</a></li>
+                        <li class="nav-link"><a href="#category-section">kategoriler</a></li>
+                        <li class="nav-link"><a href="#">hakkımızda</a></li>
+                        <li class="nav-link"><a href="products.html">Tüm ürünler</a></li>
                     </ul>
                 </nav>
             </div>
 
-            <!-- the hamburger -->
+            <!-- UPDATED NAVBAR-RIGHT -->
             <div class="navbar-right">
+                <div class="cart-icon-wrapper">
+                    <a href="pages/cart.html">
+                        <div class="cart-icon-counter-wrapper ">
+                            <span class="cart-icon-counter">12</span>
+                        </div>
+                        <img src="../images/shopping-cart.svg" alt="Alışveriş sepeti ikonu" width="24" height="24">
+                    </a>
+                </div>
                 <button id="navbtn" class="nav-toggle-btn ">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -52,60 +60,116 @@
 
         </header>
 
+
         <section class="section">
-            <h1>Products cart</h1>
+            <h1>Sepetim</h1>
         </section>
 
-        <!-- cart -->
+        <!-- update NEW CART SECTION -->
         <section class="section">
-            <div class="two-column-cart-layout">
-                <ul class="cart-list">
 
-                    <!-- cards -->
-                    <li class="cart-card ">
-                        <img src="../images/—Pngtree—macaron diet product photography picture_6673966.png" alt=""
-                            class="cart-card-img">
-                        <a href="#" class="cart-card-link">
-                            <h4>product name uzunyazılarıtestediyorum lsajdlkasjdlkasj asjdlaskjdlasjdklas</h4>
-                        </a>
-                        <div class="quantity-container">
-                            <button class="btn btn-transparent quantity-btn" id="decrease">-</button>
-                            <span id="quantity">1</span>
-                            <button class="btn btn-transparent quantity-btn" id="increase">+</button>
+            <div class="cart-grid">
+
+                <div class="cart-products">
+
+                    <div class="cart-card">
+                        <img src="../images/product-image/—Pngtree—macaron diet product photography picture_6673966.png"
+                            alt="" class="cart-card-img">
+
+                        <div class="cart-card-info">
+                            <div class="cart-card-info-name">
+                                <a href="#">Makaron marka makaron harika makaronlar her çeşit makaronlar asd asd asd
+                                    asdas dasd akldashdha skhda slkşhd lkahk</a>
+                            </div>
+                            <div class="cart-card-info-price">
+                                <small class="cart-card-info-price-discount cart-card-info-price-discount-active"><span
+                                        class="strikethrough">192$</span> indirim!</small>
+                                <h2>134$</h2>
+                            </div>
                         </div>
-                        <h4>123.4$</h4>
-                        <button class="btn btn-transparent remove-btn">Sepetten çıkar</button>
-                    </li>
 
-                </ul>
-
-                <div class="cart-summary-wrapper">
-                    <article class="cart-summary-card">
-                        <h3 class="cart-summary-card-title">Sipariş özeti</h3>
-                        <div class="summary-text">
-                            <p>urun toplam</p>
-                            <p>232</p>
+                        <div class="cart-card-manage">
+                            <svg class="cart-card-manage-remove-cart" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                            </svg>
                         </div>
-                        <div class="summary-text">
+
+                    </div>
+
+                    <div class="cart-card">
+                        <img src="../images/product-image/—Pngtree—macaron diet product photography picture_6673966.png"
+                            alt="" class="cart-card-img">
+
+                        <div class="cart-card-info">
+                            <div class="cart-card-info-name">
+                                <a href="#">Makaron marka makaron harika makaronlar her çeşit makaronlar asd asd asd
+                                    asdas dasd akldashdha skhda slkşhd lkahk</a>
+                            </div>
+                            <div class="cart-card-info-price">
+                                <small class="cart-card-info-price-discount cart-card-info-price-discount-active"><span
+                                        class="strikethrough">192$</span> indirim!</small>
+                                <h2>134$</h2>
+                            </div>
+                        </div>
+
+                        <div class="cart-card-manage">
+                            <svg class="cart-card-manage-remove-cart" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                            </svg>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+
+                
+
+                <div class="cart-summary-container">
+                    <div class="cart-summary">
+                        <div class="cart-summary-heading">
+                            <h1>Sipariş Özeti</h1>
+                        </div>
+                        <div class="cart-summary-totals">
+                            <p>urunun toplamı</p>
+                            <p>200$</p>
+                        </div>
+                        <div class="cart-summary-totals">
                             <p>kargo toplam</p>
-                            <p>232</p>
+                            <p>29$</p>
                         </div>
                         <hr>
-                        <div class="summary-text">
-                            <h4>toplam</h4>
-                            <h4>1.151,90TL</h4>
+                        <div class="cart-summary-total-price">
+                            <h1>Toplam</h1>
+                            <div class="cart-summary-price">
+                                300$
+                            </div>
                         </div>
-                        <button class="btn">Sepeti onayla</button>
-                    </article>
+                        <div class="ticket-container">
+                            <div class="ticket-fast-delivery">hızlı <br> teslimat</div>
+                            <div class="ticket-free-cargo">kargo <br> bedava</div>
+                        </div>
+                        <button class="add-to-cart" id="add-to-cart">Sepeti onayla</button>
+                    </div>
                 </div>
-            </div>
-            
 
-            <!-- load more btn -->
-            <section class="section more-section continue-section">
-                <button class="btn btn-transparent btn-more">Alışverişe devam et -></button>
-            </section>
+
+            </div>
+
         </section>
+
+
+
     </main>
 
 

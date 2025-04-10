@@ -1,0 +1,5 @@
+index + (cart sorunu var)
+product + 
+productdetails
+sepet +
+navbar +
