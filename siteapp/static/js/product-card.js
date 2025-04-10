@@ -1,10 +1,14 @@
-const addToCart = document.querySelectorAll(".add-to-cart");
-
-addToCart.forEach((button) => {
-  button.addEventListener("click", function () {
-    button.classList.add("add-to-cart-active");
-    button.classList.add("add-to-cart-no-hover");
-    button.textContent = "Sepete eklendi!";
+document.querySelectorAll(".add-to-cart").forEach((button) => {
+  button.addEventListener("click", function() {
+    const originalText = button.textContent;
+    button.classList.add("add-to-cart-active", "add-to-cart-no-hover");
+    button.textContent = "✓ Sepete Eklendi!";
+    
+    // 2 saniye sonra eski haline dönsün
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove("add-to-cart-active", "add-to-cart-no-hover");
+    }, 2000);
   });
 });
 

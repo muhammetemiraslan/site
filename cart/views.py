@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from siteapp.models import product
 from decimal import Decimal
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -60,6 +61,20 @@ def update_cart_quantity(request, product_id):
     return redirect("cart_detail")
 
 
+# def add_to_cart(request, product_id):
+#     product_obj = get_object_or_404(product, id=product_id)
+#     quantity = int(request.POST.get("quantity", 1))
+
+#     cart = request.session.get("cart", {})
+
+#     if str(product_id) in cart:
+#         cart[str(product_id)] += quantity
+#     else:
+#         cart[str(product_id)] = quantity
+
+#     request.session["cart"] = cart
+#     return redirect("products")
+
 def add_to_cart(request, product_id):
     product_obj = get_object_or_404(product, id=product_id)
     quantity = int(request.POST.get("quantity", 1))
@@ -72,6 +87,17 @@ def add_to_cart(request, product_id):
         cart[str(product_id)] = quantity
 
     request.session["cart"] = cart
+    request.session.modified = True
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        # Sepetteki toplam ürün sayısını hesapla
+        total_items = sum(cart.values())
+        return JsonResponse({
+            'success': True,
+            'cart_item_count': total_items,
+            'message': 'Ürün sepete eklendi'
+        })
+    
     return redirect("products")
 
 
