@@ -10,18 +10,66 @@
 		<title>{% block title %}Portfolio{% endblock %}</title>
 	</head>
 	<body>
-        <main class="container">
-            {% include 'partials/_navbar.html' %}
-            {% block content %} {% endblock %}
-        </main>
+		<main class="container">{% include 'partials/_navbar.html' %} {% block content %} {% endblock %}</main>
 		{% include 'partials/_footer.html' %}
-		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="{% static 'js/nav-toggle.js' %}"></script>
 		<script src="{% static 'js/product-card.js' %}"></script>
 		<script src="{% static 'js/product-detail-gallery.js' %}"></script>
 		<script src="{% static 'js/quantity.js' %}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-		
+		<script>
+			// Buton değişimi için vanilla JS
+			document.querySelectorAll(".add-to-cart").forEach((button) => {
+				button.addEventListener("click", function () {
+					const originalText = button.textContent;
+					button.classList.add("add-to-cart-active", "add-to-cart-no-hover");
+					button.textContent = "✓ Sepete Eklendi!";
+
+					setTimeout(() => {
+						button.textContent = originalText;
+						button.classList.remove("add-to-cart-active", "add-to-cart-no-hover");
+					}, 2000);
+				});
+			});
+
+			// AJAX işlemi için jQuery
+			$(document).ready(function () {
+				$(".ajax-form").on("submit", function (e) {
+					e.preventDefault();
+					var form = $(this);
+					var button = form.find(".add-to-cart")[0]; // Buton elementini seç
+
+					$.ajax({
+						type: "POST",
+						url: form.attr("action"),
+						data: form.serialize(),
+						success: function (response) {
+							if (response.success) {
+								// Sepet sayacını güncelle (navbar + varsa diğer yerler)
+								$(".cart-count, .cart-icon-counter").text(response.cart_item_count);
+
+								// Sepet ikonu animasyonu
+								const cartIcon = document.querySelector(".cart-icon-counter-wrapper");
+								if (cartIcon) {
+									cartIcon.classList.add("animate-bounce");
+									setTimeout(() => cartIcon.classList.remove("animate-bounce"), 1000);
+								}
+							}
+						},
+						error: function (xhr) {
+							console.error("Hata:", xhr.responseJSON?.message || "Ürün sepete eklenemedi");
+							// Hata durumunda butonu eski haline getir
+							if (button) {
+								button.textContent = originalText;
+								button.classList.remove("add-to-cart-active", "add-to-cart-no-hover");
+							}
+						},
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
