@@ -4,8 +4,6 @@ from siteapp.models import product
 from decimal import Decimal
 from django.http import JsonResponse
 
-# Create your views here.
-
 
 def cart_detail(request):
     # categories = category.objects.all()
@@ -42,6 +40,9 @@ def cart_detail(request):
         },
     )
 
+def clear_cart(request):
+    request.session['cart'] = {}
+    return redirect('cart_detail')
 
 def update_cart_quantity(request, product_id):
     if request.method == "POST":
@@ -59,21 +60,6 @@ def update_cart_quantity(request, product_id):
         request.session["cart"] = cart
 
     return redirect("cart_detail")
-
-
-# def add_to_cart(request, product_id):
-#     product_obj = get_object_or_404(product, id=product_id)
-#     quantity = int(request.POST.get("quantity", 1))
-
-#     cart = request.session.get("cart", {})
-
-#     if str(product_id) in cart:
-#         cart[str(product_id)] += quantity
-#     else:
-#         cart[str(product_id)] = quantity
-
-#     request.session["cart"] = cart
-#     return redirect("products")
 
 def add_to_cart(request, product_id):
     product_obj = get_object_or_404(product, id=product_id)

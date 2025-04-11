@@ -3,19 +3,19 @@
 <section class="section hero-section">
 	<div class="hero-content">
 		<h1 class="hero-header">
-			Discover elegant &
+			En sevilen halı modelleri &
 			<br />
-			affordable furniture for every room
+			en rahat en güzel halılar burda!
 		</h1>
 		<p class="hero-text">
-			Transform your furniture with sophisticated and stylish
+			sevdiklerinizle beraber en rahat halıların tadını çıkarın!
 			<br />
-			pieces, and create a serene and inviting home.
+			halılar, halı gibi halılar gel bak neler var!
 		</p>
 		<div class="hero-buttons">
-			<a href="{% url 'products' %}"><button class="btn">Shop now</button></a>
-			<a href="{% url 'products' %}"><button class="btn btn-transparent">Free delivery</button></a>
-			<a href="{% url 'products' %}"><button class="btn btn-transparent">Always on-time</button></a>
+			<a href="{% url 'products' %}"><button class="btn">Alışverişe başla</button></a>
+			<button class="btn btn-transparent">150TL ve üzeri ücretsiz kargo</button>
+			<button class="btn btn-transparent">Herzaman zamanında teslimat</button>
 		</div>
 	</div>
 	<!-- grid e bakılacak -->
@@ -34,45 +34,45 @@
 	</header>
 
 	<div class="popular-grid">
-		{% for product in products%} 
-			{% if product.is_home %}
+		{% for product in products%} {% if product.is_home %}
 
-				<a href="{% url 'product-details' product.slug %}">
-					<div class="popular-card">
-						<img src="{{product.image.url}}" alt="meta info for image" class="popular-card-img" />
-						<div class="popular-card-info">
-							<div class="popular-card-info-advantage">#1 En çok satılan</div>
-							<div class="popular-card-info-name">{{product.title}}</div>
-							<div class="popular-card-info-rating">
-								⭐ 4.8
-								<span class="review-count">| 89 yorum</span>
-							</div>
-							<div class="popular-card-info-price">
-								<small class="popular-card-info-price-discount">indirim</small>
-								<h2>{{product.price}}$</h2>
-							</div>
-							<div class="ticket-container">
-								<div class="ticket-fast-delivery">
-									hızlı
-									<br />
-									teslimat
-								</div>
-								<div class="ticket-free-cargo">
-									kargo
-									<br />
-									bedava
-								</div>
-							</div>
+		<a href="{% url 'product-details' product.slug %}">
+			<div class="popular-card">
+				<img src="{{product.image.url}}" alt="meta info for image" class="popular-card-img" />
+				<div class="popular-card-info">
+					<div class="popular-card-info-advantage">#1 En çok satılan</div>
+					<div class="popular-card-info-name">{{product.title}}</div>
+					<div class="popular-card-info-rating">
+						⭐ 4.8
+						<span class="review-count">| 89 yorum</span>
+					</div>
+					<div class="popular-card-info-price">
+						<small class="popular-card-info-price-discount">indirim</small>
+						<h2>{{product.price}}$</h2>
+					</div>
+					<div class="ticket-container">
+						<div class="ticket-fast-delivery">
+							hızlı
+							<br />
+							teslimat
+						</div>
+						<div class="ticket-free-cargo">
+							kargo
+							<br />
+							bedava
 						</div>
 					</div>
-				</a>
-			{% endif %} 
-		{% endfor %}
+				</div>
+			</div>
+		</a>
+		{% endif %} {% endfor %}
 	</div>
 </section>
 
 <section class="section more-section">
-	<button class="btn btn-transparent btn-more">Daha fazla görüntüle -></button>
+	<a href="{% url 'products' %}">
+		<button class="btn btn-transparent btn-more">Daha fazla görüntüle -></button>
+	</a>
 </section>
 
 <!-- CATEGORY SECTION -->
@@ -116,7 +116,7 @@
 			</header>
 			<p class="ambitions-text">{{products.0.description|truncatewords:40}}</p>
 			<a href="{% url 'product-details' slug=products.0.slug %}">
-				<button class="btn">Learn more</button>
+				<button class="btn">Dahasını görüntüle</button>
 			</a>
 		</article>
 	</div>

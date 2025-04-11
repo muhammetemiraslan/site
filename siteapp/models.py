@@ -38,12 +38,33 @@ class product(models.Model):
     def __str__(self):
         return self.title
 
-
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
 
         super().save(*args, **kwargs)
 
+        if self.image:
+            self.compress_image()
+
+    def compress_image(self):
+        if self.image:
+            image_path = self.image.path
+            source = tinify.from_file(image_path)
+            source.to_file(image_path)
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(
+        "product", related_name="images", on_delete=models.CASCADE
+    )
+    image = models.ImageField(upload_to="product_images/")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Image for {self.product.title}"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
         if self.image:
             self.compress_image()
 

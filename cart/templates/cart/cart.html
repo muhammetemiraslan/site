@@ -8,8 +8,11 @@
 <section class="section">
 	<div class="cart-grid">
 		<div class="cart-products">
+			{% if cart_items %}
+			<a href="{% url 'clear_cart' %}" class="">Sepeti Temizle</a>
+		
+			{% endif %}
 			{% for item in cart_items %}
-
 			<div class="cart-card">
 				<img src="{{ item.image }}" alt="" class="cart-card-img" />
 
@@ -24,54 +27,30 @@
 						</small>
 						<h2>134$</h2>
 					</div>
-				</div>
-				<div class="quantity-container">
-					<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
-						{% csrf_token %}
-						<input type="hidden" name="action" value="decrease" />
-						<button class="btn btn-transparent quantity-btn">-</button>
-					</form>
-					<span id="quantity">{{ item.quantity }}</span>
-					<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
-						{% csrf_token %}
-						<input type="hidden" name="action" min="1" max="10" value="increase" />
-						<button class="btn btn-transparent quantity-btn">+</button>
-					</form>
+
+					<div class="quantity">
+						<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
+							{% csrf_token %}
+							<input type="hidden" name="action" value="decrease" />
+							<button class="">-</button>
+						</form>
+						<input type="number" id="quantity" value="{{ item.quantity }}" min="1" readonly />
+						<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
+							{% csrf_token %}
+							<input type="hidden" name="action" min="1" max="10" value="increase" />
+							<button class="">+</button>
+						</form>
+					</div>
 				</div>
 				<form action="{% url 'remove_from_cart' item.product.id %}" method="POST">
 					{% csrf_token %}
-					<button type="submit" class="btn btn-transparent remove-btn" style="border: none; background: none; padding: 0;">
+					<button type="submit" class="btn btn-transparent remove-btn" style="border: none; background: none; padding: 0">
 						<svg class="cart-card-manage-remove-cart" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
 							<polyline points="3 6 5 6 21 6"></polyline>
 							<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
 						</svg>
 					</button>
 				</form>
-
-				{% comment %}
-				<a href="{% url 'product-details' item.product.slug %}" class="cart-card-link">
-					<h4>{{item.product.title}}</h4>
-				</a>
-				<div class="quantity-container">
-					<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
-						{% csrf_token %}
-						<input type="hidden" name="action" value="decrease" />
-						<button class="btn btn-transparent quantity-btn">-</button>
-					</form>
-					<span id="quantity">{{ item.quantity }}</span>
-					<form action="{% url 'update_cart_quantity' item.product.id %}" method="POST" style="display: inline">
-						{% csrf_token %}
-						<input type="hidden" name="action" min="1" max="10" value="increase" />
-						<button class="btn btn-transparent quantity-btn">+</button>
-					</form>
-				</div>
-				<h4>{{ item.subtotal }}$</h4>
-
-				<form action="{% url 'remove_from_cart' item.product.id %}" method="POST">
-					{% csrf_token %}
-					<button type="submit" class="btn btn-transparent remove-btn">Sepetten çıkar</button>
-				</form>
-				{% endcomment %}
 			</div>
 			{% endfor %}
 		</div>
@@ -117,11 +96,11 @@
 	</div>
 </section>
 
-{% endblock %} {% comment %}
 <!-- load more btn -->
 <section class="section more-section continue-section">
 	<a href="{% url 'products' %}">
 		<button class="btn btn-transparent btn-more">Alışverişe devam et -></button>
 	</a>
 </section>
-{% endcomment %}
+
+{% endblock %}

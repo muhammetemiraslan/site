@@ -3,8 +3,7 @@ from .models import product, category
 
 
 def home(request):
-    products = product.objects.all()[:4]
-
+    products = product.objects.filter(is_home=True)[:4]
     categories = category.objects.all()[:8]
 
     return render(
@@ -56,6 +55,8 @@ def product_details(request, slug):
         id=products.id
     )
 
+    product_images = products.images.all()
+
     cart = request.session.get('cart', {})  
     cart_quantity = cart.get(str(products.id), 0)
 
@@ -67,6 +68,7 @@ def product_details(request, slug):
             "categories": categories,
             "related_products": related_products,
             "cart_quantity": cart_quantity,
+            "product_images": product_images,
         },
     )
 
